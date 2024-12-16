@@ -64,7 +64,7 @@ export default function Farming () {
     }
 
     try {
-      const response = await fetch('https://xrp-ai-back.vercel.app/send-message', {
+      const response = await fetch('http://localhost:5000/send-message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -339,7 +339,7 @@ export default function Farming () {
   useEffect(() => {
     const handleData = async () => {
       try {
-        const response = await fetch('https://xrp-ai-back.vercel.app/send-message')
+        const response = await fetch('http://localhost:5000/send-message')
         const data = await response.json()
 
         data.forEach(message => {
@@ -389,7 +389,7 @@ export default function Farming () {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('https://xrp-ai-back.vercel.app/users')
+        const response = await fetch('http://localhost:5000/users')
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`)
         }
