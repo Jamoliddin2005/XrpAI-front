@@ -122,7 +122,7 @@ export default function MainPage () {
                 <p className='grotesk text-[#616569] uppercase'>Home</p>
               </div>
               <div className='flex gap-3 items-center '>
-                <Link  to={'/'}>
+                <Link  to={'/signin'}>
                 <button className='neu-trial transition duration-300 hover:bg-transparent hover:border-[#43AFFF] hover:text-white border border-transparent bg-[#43AFFF] py-1.5  md:py-4 px-5 md:px-10 rounded-[9px] text-[14px] text-black cursor-pointer'>
                   Sign in
                 </button>

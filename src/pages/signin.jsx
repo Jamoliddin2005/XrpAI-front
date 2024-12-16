@@ -20,13 +20,15 @@ export default function SignInRootPage() {
     }
 
     try {
-      const response = await axios.post("https://xrp-ai-back.vercel.app/signin", {
+      const response = await axios.post("http://localhost:5000/signin", {
         username: email,
         password,
       });
 
       alert("Вход успешен!");
       localStorage.setItem("register", "true");
+      localStorage.setItem("userEmail", email);
+      console.log('user email: ', email)
       setTimeout(() => {
         navigate("/main-active");
         window.location.reload()
