@@ -29,7 +29,7 @@ export default function SignUpRootPage() {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/signup", {
+      const response = await axios.post("https://xrp-ai-back.vercel.app/signup", {
         username: email,
         password,
       });
@@ -40,7 +40,7 @@ export default function SignUpRootPage() {
       setConfirmPassword("");
       setTimeout(() => {
         navigate("/signin");
-      }, 1000);
+      }, 300);
     } catch (err) {
       setError(
         err.response?.data?.error || "Произошла ошибка при регистрации!"

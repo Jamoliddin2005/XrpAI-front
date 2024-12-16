@@ -6,7 +6,7 @@ import SmallXIcon from "../assets/images/small-x.png";
 import AuthImage from "../assets/images/auth-image.png";
 import imageBG from "../assets/images/Vector.png";
 
-export default function SignInRootPage() {
+export default function SignInRootPage({ checkRegisterStatus }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -20,19 +20,16 @@ export default function SignInRootPage() {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/signin", {
+      const response = await axios.post("https://xrp-ai-back.vercel.app/signin", {
         username: email,
         password,
       });
 
-      alert("Вход успешен!");
-      localStorage.setItem("register", "true");
-      localStorage.setItem("userEmail", email);
-      console.log('user email: ', email)
+      localStorage.setItem("token", response?.data?.token);
+      checkRegisterStatus();
       setTimeout(() => {
         navigate("/main-active");
-        window.location.reload()
-      }, 1000);
+      }, 500);
     } catch (err) {
       localStorage.setItem("register", "false");
       setError(err.response?.data?.error || "Произошла ошибка при входе!");
