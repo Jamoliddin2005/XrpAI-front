@@ -18,38 +18,10 @@ export default function ActivePageFarming({ user }) {
   const [calculator, setCalculator] = useState(false);
   const [usersList, setUsersList] = useState(false);
   const [secondClipboard, setSecondClipboard] = useState(false);
-  const [userData, setUser] = useState("");
   const [isCodeComplete, setIsCodeComplete] = useState(false);
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await fetch("https://xrp-ai-back.vercel.app/users", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer YOUR_JWT_TOKEN",
-          },
-        });
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch users");
-        }
-
-        const data = await response.json();
-        setUser(data);
-        console.log(data);
-      } catch (error) {
-        console.error("Error fetching users:", error);
-      }
-    };
-
-    fetchUsers();
-  }, []);
-
-  const usersData = [
+  const userData = [
     {
-      id: 1,
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
@@ -57,15 +29,34 @@ export default function ActivePageFarming({ user }) {
       status: "Process",
     },
     {
-      id: 2,
-      name: "User123",
+      name: "UserPayed",
       icon: userCircle,
-      expextedTime: "15 minutes",
+      expextedTime: "20 minutes",
+      dateAndTime: "15.10.2024 14:32",
+      status: "Completed",
+    },
+    {
+      name: "User789",
+      icon: userCircle,
+      expextedTime: "25 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User101",
+      icon: userCircle,
+      expextedTime: "30 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User202",
+      icon: userCircle,
+      expextedTime: "35 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Completed",
     },
     {
-      id: 3,
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
@@ -73,15 +64,34 @@ export default function ActivePageFarming({ user }) {
       status: "Process",
     },
     {
-      id: 4,
-      name: "User123",
+      name: "UserPayed",
       icon: userCircle,
-      expextedTime: "15 minutes",
+      expextedTime: "20 minutes",
+      dateAndTime: "15.10.2024 14:32",
+      status: "Completed",
+    },
+    {
+      name: "User789",
+      icon: userCircle,
+      expextedTime: "25 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User101",
+      icon: userCircle,
+      expextedTime: "30 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User202",
+      icon: userCircle,
+      expextedTime: "35 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Completed",
     },
     {
-      id: 5,
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
@@ -89,31 +99,34 @@ export default function ActivePageFarming({ user }) {
       status: "Process",
     },
     {
-      id: 6,
-      name: "User123",
+      name: "UserPayed",
       icon: userCircle,
-      expextedTime: "15 minutes",
+      expextedTime: "20 minutes",
+      dateAndTime: "15.10.2024 14:32",
+      status: "Completed",
+    },
+    {
+      name: "User789",
+      icon: userCircle,
+      expextedTime: "25 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Process",
     },
     {
-      id: 7,
-      name: "User123",
+      name: "User101",
       icon: userCircle,
-      expextedTime: "15 minutes",
+      expextedTime: "30 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Process",
     },
     {
-      id: 8,
-      name: "User123",
+      name: "User202",
       icon: userCircle,
-      expextedTime: "15 minutes",
+      expextedTime: "35 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Completed",
     },
     {
-      id: 9,
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
@@ -121,23 +134,34 @@ export default function ActivePageFarming({ user }) {
       status: "Process",
     },
     {
-      id: 10,
-      name: "User123",
+      name: "UserPayed",
       icon: userCircle,
-      expextedTime: "15 minutes",
+      expextedTime: "20 minutes",
+      dateAndTime: "15.10.2024 14:32",
+      status: "Completed",
+    },
+    {
+      name: "User789",
+      icon: userCircle,
+      expextedTime: "25 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Process",
     },
     {
-      id: 11,
-      name: "User123",
+      name: "User101",
       icon: userCircle,
-      expextedTime: "15 minutes",
+      expextedTime: "30 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User202",
+      icon: userCircle,
+      expextedTime: "35 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Completed",
     },
     {
-      id: 12,
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
@@ -145,15 +169,34 @@ export default function ActivePageFarming({ user }) {
       status: "Process",
     },
     {
-      id: 13,
-      name: "User123",
+      name: "UserPayed",
       icon: userCircle,
-      expextedTime: "15 minutes",
+      expextedTime: "20 minutes",
+      dateAndTime: "15.10.2024 14:32",
+      status: "Completed",
+    },
+    {
+      name: "User789",
+      icon: userCircle,
+      expextedTime: "25 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User101",
+      icon: userCircle,
+      expextedTime: "30 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User202",
+      icon: userCircle,
+      expextedTime: "35 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Completed",
     },
     {
-      id: 14,
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
@@ -161,15 +204,34 @@ export default function ActivePageFarming({ user }) {
       status: "Process",
     },
     {
-      id: 15,
-      name: "User123",
+      name: "UserPayed",
       icon: userCircle,
-      expextedTime: "15 minutes",
+      expextedTime: "20 minutes",
+      dateAndTime: "15.10.2024 14:32",
+      status: "Completed",
+    },
+    {
+      name: "User789",
+      icon: userCircle,
+      expextedTime: "25 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User101",
+      icon: userCircle,
+      expextedTime: "30 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User202",
+      icon: userCircle,
+      expextedTime: "35 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Completed",
     },
     {
-      id: 16,
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
@@ -177,15 +239,34 @@ export default function ActivePageFarming({ user }) {
       status: "Process",
     },
     {
-      id: 17,
-      name: "User123",
+      name: "UserPayed",
       icon: userCircle,
-      expextedTime: "15 minutes",
+      expextedTime: "20 minutes",
+      dateAndTime: "15.10.2024 14:32",
+      status: "Completed",
+    },
+    {
+      name: "User789",
+      icon: userCircle,
+      expextedTime: "25 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User101",
+      icon: userCircle,
+      expextedTime: "30 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User202",
+      icon: userCircle,
+      expextedTime: "35 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Completed",
     },
     {
-      id: 18,
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
@@ -193,20 +274,109 @@ export default function ActivePageFarming({ user }) {
       status: "Process",
     },
     {
-      id: 19,
-      name: "User123",
+      name: "UserPayed",
       icon: userCircle,
-      expextedTime: "15 minutes",
+      expextedTime: "20 minutes",
+      dateAndTime: "15.10.2024 14:32",
+      status: "Completed",
+    },
+    {
+      name: "User789",
+      icon: userCircle,
+      expextedTime: "25 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Process",
     },
     {
-      id: 20,
-      name: "User123",
+      name: "User101",
       icon: userCircle,
-      expextedTime: "15 minutes",
+      expextedTime: "30 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User202",
+      icon: userCircle,
+      expextedTime: "35 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Completed",
+    },
+    {
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "UserPayed",
+      icon: userCircle,
+      expextedTime: "20 minutes",
+      dateAndTime: "15.10.2024 14:32",
+      status: "Completed",
+    },
+    {
+      name: "User789",
+      icon: userCircle,
+      expextedTime: "25 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User101",
+      icon: userCircle,
+      expextedTime: "30 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User202",
+      icon: userCircle,
+      expextedTime: "35 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Completed",
+    },
+    {
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "UserPayed",
+      icon: userCircle,
+      expextedTime: "20 minutes",
+      dateAndTime: "15.10.2024 14:32",
+      status: "Completed",
+    },
+    {
+      name: "User789",
+      icon: userCircle,
+      expextedTime: "25 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User101",
+      icon: userCircle,
+      expextedTime: "30 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      name: "User202",
+      icon: userCircle,
+      expextedTime: "35 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Completed",
+    },
+    {
+      name: user.username,
+      icon: userCircle,
+      expextedTime: "40 minutes",
+      dateAndTime: "15.10.2024 14:35",
+      status: "Process",
     },
   ];
   const handleCalculator = () => {
@@ -300,7 +470,7 @@ export default function ActivePageFarming({ user }) {
         <p className="text-white text-lg neu-trial">Start Farming</p>
         <p
           onClick={handleCalculator}
-          className="hover:underline cursor-pointer neu-trial text-[#898989] text-xs neu-trial"
+          className="hover:underline cursor-pointer neu-trial text-[#43AFFF] text-xs neu-trial"
         >
           Calculate Profit
         </p>
@@ -316,11 +486,11 @@ export default function ActivePageFarming({ user }) {
         <div className="flex items-center justify-between gap-1.5">
           <div className="bg-[#1D1D1D] w-1/2 rounded-xl py-2">
             <p className="text-[#898989] neu-trial">Today</p>
-            <h4 className="text-[#FFFFFF] neu-trial">00:57:56</h4>
+            <h4 className="text-[#FFFFFF] neu-trial">00:00:00</h4>
           </div>
           <div className="bg-[#1D1D1D] w-1/2 rounded-xl py-2">
             <p className="text-[#898989] neu-trial">Limits</p>
-            <h4 className="text-[#FFFFFF] neu-trial">03:57:56</h4>
+            <h4 className="text-[#FFFFFF] neu-trial">00:00:00</h4>
           </div>
         </div>
       </div>
@@ -761,8 +931,8 @@ export default function ActivePageFarming({ user }) {
                           <th className="neu-trial">Status</th>
                         </tr>
                       </thead>
-                      {userData.map((u, index) => (
-                        <tbody className="">
+                      {userData?.map((u, index) => (
+                        <tbody className="" key={index}>
                           <tr className="hover:bg-[#404040] cursor-pointer neu-trial  text-center">
                             <td className="flex items-center gap-3  py-4 px-2 rounded-full">
                               <p className="text-[#999C9E] text-sm neu-trial ">
@@ -771,7 +941,7 @@ export default function ActivePageFarming({ user }) {
                               <div className="h-[26px] bg-[#2C2C2C] flex items-center justify-center !rounded-full !w-[26px]">
                                 <img className="" src={userCircle} alt="" />
                               </div>
-                              <p className="text-sm neu-trial">{u.username}</p>
+                              <p className="text-sm neu-trial">{u.name}</p>
                             </td>
                             <td className="text-sm neu-trial">
                               <p>15 minute</p>
@@ -786,7 +956,7 @@ export default function ActivePageFarming({ user }) {
                                 }
                               )}
                             </td>
-                            {u.username.length > 12 ? (
+                            {u.status === "Completed" ? (
                               <td classNa me="neu-trial">
                                 <div className="bg-[#172518] !w-fit marginAuto p-2 text-sm rounded-md text-[#28A745]">
                                   <div className="flex items-center !w-fit justify-center gap-2">

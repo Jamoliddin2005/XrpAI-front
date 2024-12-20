@@ -82,10 +82,10 @@ export default function HomePageRightActive () {
             <div className='flex items-start gap-0.5'>
               <div>
                 <p className='text-white text-sm neu-trial'>Activity</p>
-                <h1 className='text-white text-[27px] neu-trial'>80%</h1>
+                <h1 className='text-white text-[27px] neu-trial'>0%</h1>
               </div>
               <div className='bg-[#20310f] text-[#4CAF50] w-fit flex items-center gap-0.5 p-1 rounded'>
-                <p className='text-[11px] neu-trial'>+80%</p>
+                <p className='text-[11px] neu-trial'>+0%</p>
                 <img src={UpIcon} alt='' />
               </div>
             </div>

@@ -5,6 +5,7 @@ import Button from "../../buttons/signButtons";
 import copyIcon from "../../../assets/icons/copy-icon.svg";
 import qrCode from "../../../assets/icons/qr-code.svg";
 import CodeViewer from "../../hideCode";
+import Calculator from "../calculator";
 
 export default function ActivePageFarming() {
   const [open, setOpen] = useState(true);
@@ -13,6 +14,7 @@ export default function ActivePageFarming() {
   const [clipboard3, setClipboard3] = useState(false);
   const [openCodeView, setOpenCodeView] = useState(false);
   const [copyText2, setCopyText2] = useState("");
+  const [calculator, setCalculator] = useState(false);
 
   const [activeModal, setActiveModal] = useState(null);
 
@@ -27,6 +29,10 @@ export default function ActivePageFarming() {
   };
   const handleOpenModal = (modalName) => {
     setActiveModal(modalName);
+  };
+
+  const handleCalculator = () => {
+    setCalculator(!calculator);
   };
 
   const truncateText = (text, maxLength) => {
@@ -93,13 +99,24 @@ export default function ActivePageFarming() {
 
   return (
     <>
+      {calculator && (
+        <>
+          <Calculator
+            status={calculator}
+            onClose={() => setCalculator(false)}
+          />
+        </>
+      )}
       <div
         data-aos="zoom-in"
         className="md:w-[30%] bg-[#141414] py-4 px-5 rounded-2xl text-center mb-2 lg:mb-0"
       >
         <p className="text-white text-lg neu-trial">Start Farming</p>
-        <p className="hover:underline cursor-pointer neu-trial text-[#898989] text-xs">
-          Check documentation
+        <p
+          onClick={handleCalculator}
+          className="hover:underline cursor-pointer neu-trial text-[#43AFFF] text-xs neu-trial"
+        >
+          Calculate Profit
         </p>
         <div className=" flex items-center justify-center ">
           <div
@@ -109,14 +126,15 @@ export default function ActivePageFarming() {
             <img src={PlayIcon} alt="" />
           </div>
         </div>
+
         <div className="flex items-center justify-between gap-1.5">
           <div className="bg-[#1D1D1D] w-1/2 rounded-xl py-2">
             <p className="text-[#898989] neu-trial">Today</p>
-            <h4 className="text-[#FFFFFF] neu-trial">00:57:56</h4>
+            <h4 className="text-[#FFFFFF] neu-trial">00:00:00</h4>
           </div>
           <div className="bg-[#1D1D1D] w-1/2 rounded-xl py-2">
             <p className="text-[#898989] neu-trial">Limits</p>
-            <h4 className="text-[#FFFFFF] neu-trial">03:57:56</h4>
+            <h4 className="text-[#FFFFFF] neu-trial">00:00:00</h4>
           </div>
         </div>
       </div>

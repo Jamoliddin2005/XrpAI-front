@@ -74,7 +74,7 @@ export default function HomePageRight() {
         <div className='w-full py-6 px-5'>
             <div>
                 <p className='text-[#898989] text-sm neu-trial'>Activity</p>
-                <h1 className='text-[#898989] text-[27px] neu-trial'>80%</h1>
+                <h1 className='text-[#898989] text-[27px] neu-trial'>0%</h1>
             </div>
             <div className='flex justify-between gap-1.5 w-full'>
                 {percentData.map((percent,index) => {

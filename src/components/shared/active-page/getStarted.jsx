@@ -58,14 +58,14 @@ export default function GetStartedActive () {
           </div>
         </div>
         <div className='scrol-element-22 pr-2'>
-          <div className='flex mb-1.5 justify-between neu-trial bg-[#1D1D1D] py-2.5 px-2.5 rounded-xl card cursor-pointer'>
+          <div className='flex mb-1.5 justify-between neu-trial bg-[#1D1D1D] py-2.5 px-2.5 rounded-xl card cursor-pointer active-block-video'>
             <Link to={`${messagesData[0].videoUrl}`}>
               <div className='flex items-center gap-2'>
-                <div className='w-10 h-10 flex items-center justify-center card-image bg-transparent  rounded-full'>
+                <div className='w-10 h-10 flex items-center justify-center  rounded-full bg-[#43afff]'>
                   <img src={messagesData[0].icon} alt='' />
                 </div>
                 <div>
-                  <h3 className='text-[#898989] text-xs hover-text'>
+                  <h3 className='text-[#fff] text-xs hover-text'>
                     {messagesData[0].headText}
                   </h3>
                   <p className='text-[#43AFFF] text-[10px]'>
@@ -92,7 +92,7 @@ export default function GetStartedActive () {
                     <h3 className='text-[#898989] text-xs hover-text'>
                       {message.headText}
                     </h3>
-                    <p className='text-[#43AFFF] text-[10px]'>
+                    <p className='text-[#2E2E2E] text-[10px]'>
                       {message.content}
                     </p>
                   </div>

@@ -35,12 +35,12 @@ export default function App () {
         {
           method: 'GET',
           headers: {
-            Authorization: token // Tokenni headerga yuborish
+            Authorization: token 
           }
         }
       )
       const data = await response.json()
-      setUser(data.user) // response.logdan keyin to'g'ri message va status qo'shing
+      setUser(data.user) 
       if (response.ok) {
         setRegistered(true)
       } else {
