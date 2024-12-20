@@ -727,3 +727,247 @@ pre code {
     z-index: 20;
   }
 }
+
+.bacground-some-blacc {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.butttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+  overflow-x: scroll;
+  padding-bottom: 10px;
+}
+
+.butttons div {
+  text-align: center !important;
+  width: 100%;
+}
+
+.transform-element {
+  animation: infinite 5s animattttion;
+}
+
+.marginAuto {
+  margin: 0 auto;
+}
+
+@keyframes animattttion {
+  0% {
+    box-shadow: 0px 0px 0px 10px #14222e;
+  }
+  50% {
+    box-shadow: 0px 0px 0px 0px #14222e;
+  }
+  75% {
+    box-shadow: 0px 0px 0px 10px #14222e;
+  }
+  100% {
+    box-shadow: 0px 0px 0px 0px #14222e;
+  }
+}
+
+table div {
+  width: 100% !important;
+}
+
+.table-element {
+  overflow-x: scroll;
+  height: 600px;
+  margin-top: 20px;
+}
+
+.thead tr {
+  border-radius: 40px !important;
+}
+
+.waiting-list {
+  position: relative;
+}
+
+.waiting-list::before {
+  content: '';
+  position: absolute;
+  bottom: -24px;
+  z-index: 99;
+  background: #43afff;
+  border-radius: 100px;
+  width: 100%;
+  height: 3px;
+}
+
+.calculator {
+  width: 400px !important;
+}
+
+@media (max-width: 400px) {
+  .table-scroll {
+    overflow: scroll;
+    height: 100vh;
+  }
+
+  .table-element-max-w {
+    width: 350px;
+    overflow-x: scroll;
+  }
+  .table-element-res {
+    width: 800px;
+    overflow: scroll;
+    background: #141414;
+  }
+
+  .table-element-responsice {
+    width: 800px;
+    overflow: scroll;
+  }
+  .scrol-element-table {
+    position: fixed;
+    right: 0;
+    margin: 0 auto;
+    left: 0;
+    padding: 0 20px;
+    width: 350px;
+  }
+
+  .waiting-list::before {
+    bottom: -20px;
+  }
+}
+
+@media (min-width: 350px) and (max-width: 500px) {
+  .table-scroll {
+    overflow: scroll;
+    height: 100vh;
+  }
+
+  .table-element-max-w {
+    width: 400px;
+    overflow-x: scroll;
+  }
+  .table-element-res {
+    width: 800px;
+    overflow: scroll;
+    background: #141414;
+  }
+
+  .table-element-responsice {
+    width: 800px;
+    overflow: scroll;
+  }
+  .scrol-element-table {
+    position: fixed;
+    right: 0;
+    margin: 0 auto;
+    left: 0;
+    padding: 0 20px;
+    width: 400px;
+  }
+
+  .waiting-list::before {
+    bottom: -20px;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 600px) {
+  .table-scroll {
+    overflow: scroll;
+    height: 100vh;
+  }
+
+  .table-element-max-w {
+    width: 500px;
+    overflow-x: scroll;
+  }
+  .table-element-res {
+    width: 800px;
+    overflow: scroll;
+    background: #141414;
+  }
+
+  .table-element-responsice {
+    width: 800px;
+    overflow: scroll;
+  }
+  .scrol-element-table {
+    position: fixed;
+    right: 0;
+    margin: 0 auto;
+    left: 0;
+    padding: 0 20px;
+    width: 500px;
+  }
+
+  .waiting-list::before {
+    bottom: -20px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 700px) {
+  .table-scroll {
+    overflow: scroll;
+    height: 100vh;
+  }
+
+  .table-element-max-w {
+    width: 600px;
+    overflow-x: scroll;
+  }
+  .table-element-res {
+    width: 800px;
+    overflow: scroll;
+    background: #141414;
+  }
+
+  .table-element-responsice {
+    width: 800px;
+    overflow: scroll;
+  }
+  .scrol-element-table {
+    position: fixed;
+    right: 0;
+    margin: 0 auto;
+    left: 0;
+    padding: 0 20px;
+    width: 600px;
+  }
+
+  .waiting-list::before {
+    bottom: -20px;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 800px) {
+  .table-scroll {
+    overflow: scroll;
+    height: 100vh;
+  }
+
+  .table-element-max-w {
+    width: 700px;
+    overflow-x: scroll;
+  }
+  .table-element-res {
+    width: 800px;
+    overflow: scroll;
+    background: #141414;
+  }
+
+  .table-element-responsice {
+    width: 800px;
+    overflow: scroll;
+  }
+  .scrol-element-table {
+    position: fixed;
+    right: 0;
+    margin: 0 auto;
+    left: 0;
+    padding: 0 20px;
+    width: 700px;
+  }
+
+  .waiting-list::before {
+    bottom: -20px;
+  }
+}

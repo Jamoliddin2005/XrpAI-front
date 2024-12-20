@@ -1,16 +1,221 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PlayIcon from "../../../assets/icons/play.svg";
 import PrivacyIcon from "../../../assets/icons/privacy.svg";
 import Button from "../../buttons/signButtons";
 import copyIcon from "../../../assets/icons/copy-icon.svg";
 import qrCode from "../../../assets/icons/qr-code.svg";
 import CodeViewer from "../../hideCode";
+import Calculator from "../calculator";
+import CheckIcon from "../../../assets/images/check.svg";
+import userCircle from "../../../assets/images/user-circle.svg";
+import InformationIcon from "../../../assets/images/information-circle.svg";
 
 export default function ActivePageFarming({ user }) {
   const [open, setOpen] = useState(true);
   const [clipboard, setClipboard] = useState(false);
   const [clipboard2, setClipboard2] = useState(false);
   const [openCodeView, setOpenCodeView] = useState(false);
+  const [calculator, setCalculator] = useState(false);
+  const [usersList, setUsersList] = useState(false);
+  const [secondClipboard, setSecondClipboard] = useState(false);
+  const [userData, setUser] = useState("");
+  const [isCodeComplete, setIsCodeComplete] = useState(false);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch("https://xrp-ai-back.vercel.app/users", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer YOUR_JWT_TOKEN",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch users");
+        }
+
+        const data = await response.json();
+        setUser(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+  const usersData = [
+    {
+      id: 1,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      id: 2,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Completed",
+    },
+    {
+      id: 3,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      id: 4,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Completed",
+    },
+    {
+      id: 5,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      id: 6,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      id: 7,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      id: 8,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Completed",
+    },
+    {
+      id: 9,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      id: 10,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      id: 11,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Completed",
+    },
+    {
+      id: 12,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      id: 13,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Completed",
+    },
+    {
+      id: 14,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      id: 15,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Completed",
+    },
+    {
+      id: 16,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      id: 17,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Completed",
+    },
+    {
+      id: 18,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      id: 19,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Process",
+    },
+    {
+      id: 20,
+      name: "User123",
+      icon: userCircle,
+      expextedTime: "15 minutes",
+      dateAndTime: "15.10.2024 14:30",
+      status: "Completed",
+    },
+  ];
+  const handleCalculator = () => {
+    setCalculator(!calculator);
+  };
+
+  const handleUsersList = () => {
+    setUsersList(!usersList);
+  };
 
   const [activeModal, setActiveModal] = useState(null);
 
@@ -35,6 +240,11 @@ export default function ActivePageFarming({ user }) {
     setActiveModal(null);
     setOpenCodeView(false);
     setOpen(true);
+    setIsCodeComplete(false);
+  };
+
+  const handleMakeDeposit = () => {
+    setOpenCodeView(false);
   };
 
   const handleClipboard = () => {
@@ -47,6 +257,18 @@ export default function ActivePageFarming({ user }) {
       setTimeout(() => setClipboard(false), 3000);
     });
   };
+  const handleClipboardSecond = () => {
+    setSecondClipboard(true);
+    setTimeout(() => {
+      setSecondClipboard(false);
+    }, 3000);
+    navigator.clipboard.writeText(hashMEMO).then(() => {
+      setSecondClipboard(true);
+      setTimeout(() => setSecondClipboard(false), 3000);
+    });
+  };
+
+  const hashMEMO = "3457582";
 
   const handleClipboard2 = () => {
     setClipboard2(true);
@@ -63,13 +285,24 @@ export default function ActivePageFarming({ user }) {
 
   return (
     <>
+      {calculator && (
+        <>
+          <Calculator
+            status={calculator}
+            onClose={() => setCalculator(false)}
+          />
+        </>
+      )}
       <div
         data-aos="zoom-in"
         className="md:w-[30%] bg-[#141414] py-4 px-5 rounded-2xl text-center mb-2 lg:mb-0"
       >
         <p className="text-white text-lg neu-trial">Start Farming</p>
-        <p className="hover:underline cursor-pointer neu-trial text-[#898989] text-xs">
-          Check documentation
+        <p
+          onClick={handleCalculator}
+          className="hover:underline cursor-pointer neu-trial text-[#898989] text-xs neu-trial"
+        >
+          Calculate Profit
         </p>
         <div className=" flex items-center justify-center ">
           <div
@@ -79,6 +312,7 @@ export default function ActivePageFarming({ user }) {
             <img src={PlayIcon} alt="" />
           </div>
         </div>
+
         <div className="flex items-center justify-between gap-1.5">
           <div className="bg-[#1D1D1D] w-1/2 rounded-xl py-2">
             <p className="text-[#898989] neu-trial">Today</p>
@@ -135,14 +369,20 @@ export default function ActivePageFarming({ user }) {
                   </div>
                 ) : (
                   <>
-                    <div onClick={() => handleOpenModal("secondModal")}>
-                      <Button
-                        className={
-                          "border-2 border-transparent transition-all duration-300 rounded-xl hover:border-2 hover:border-[#43AFFF] hover:text-white hover:bg-transparent"
-                        }
-                        title={"NEXT"}
-                      />
-                    </div>
+                    <button
+                      onClick={() => handleOpenModal("secondModal")}
+                      className={`cursor-pointer border !border-[#43AFFF] hover:bg-transparent hover:border bg-[#43AFFF] rounded-xl !text-white w-full py-3 ${
+                        isCodeComplete ? (
+                          <p>1 </p>
+                        ) : (
+                          " cursor-not-allowed border !border-[#43AFFF] rounded-xl !text-white w-full py-3 opacity-30"
+                        )
+                      }`}
+                      title={"NEXT"}
+                      disabled={!isCodeComplete}
+                    >
+                      NEXT
+                    </button>
                   </>
                 )}
                 {openCodeView ? (
@@ -151,7 +391,10 @@ export default function ActivePageFarming({ user }) {
                       <p className="underline text-[#999C9E] text-center">
                         Hash generator
                       </p>
-                      <CodeViewer copyText={user.token} />
+                      <CodeViewer
+                        onAnimationComplete={() => setIsCodeComplete(true)}
+                        copyText={user.token}
+                      />
                     </>
                   </div>
                 ) : null}
@@ -230,10 +473,10 @@ export default function ActivePageFarming({ user }) {
                 >
                   <div className="flex gap-2 items-center justify-between">
                     <img src={qrCode} alt="" />
-                    <p className="md:hidden block">rnPNSonfEN1TWkPH4Kw...</p>
-                    <p className="hidden md:block">
-                      rnPNSonfEN1TWkPH4Kwvkk3693sCT4tsZv
+                    <p className="md:hidden block">
+                      {truncateText(user.token, 20)}
                     </p>
+                    <p className="hidden md:block">{user.token}...</p>
                   </div>
                   {clipboard ? (
                     <h1>
@@ -305,10 +548,8 @@ export default function ActivePageFarming({ user }) {
               >
                 <div className="flex gap-2 items-center">
                   <img src={PrivacyIcon} alt="" />
-                  <p className="md:hidden block">
-                    {truncateText(user.token, 20)}
-                  </p>
-                  <p className="md:block hidden">{user.token}...</p>
+                  <p className="md:hidden block">{user?.token}</p>
+                  <p className="md:block hidden">{user?.token}</p>
                 </div>
                 {clipboard2 ? (
                   <h1>
@@ -326,6 +567,23 @@ export default function ActivePageFarming({ user }) {
                       style={{ cursor: "pointer", width: "15px" }}
                     />
                   </h1>
+                )}
+              </div>
+              <div onClick={handleClipboard2}>
+                {clipboard2 ? (
+                  <Button
+                    className={
+                      "!bg-transparent border-2 border-[#43AFFF] rounded-xl !text-white"
+                    }
+                    title={"Copied"}
+                  ></Button>
+                ) : (
+                  <Button
+                    className={
+                      "!bg-transparent border-2 border-[#43AFFF] rounded-xl !text-white"
+                    }
+                    title={"Copy hash"}
+                  ></Button>
                 )}
               </div>
 
@@ -359,6 +617,36 @@ export default function ActivePageFarming({ user }) {
                     />
                   )}
                 </div>
+                <p className="text-[#FFFFFF] text-base mt-4 mb-2.5">
+                  Unique memo
+                </p>
+                <div
+                  onClick={handleClipboardSecond}
+                  className="flex items-center  gap-2 text-start justify-between border-2  text-white border-[#2C2C2C] rounded-xl py-2.5 px-3.5 mt-4 mb-4"
+                >
+                  <div className="flex gap-2 items-center justify-between">
+                    <p className="">3457582</p>
+                  </div>
+                  {secondClipboard ? (
+                    <h1 className="flex gap-2 items-center cursor-pointer">
+                      <img src={InformationIcon} alt="" />
+                      <i
+                        onClick={handleClipboardSecond}
+                        className="fa-solid fa-check"
+                        style={{ color: "white" }}
+                      ></i>
+                    </h1>
+                  ) : (
+                    <h1 className="flex gap-2 items-center">
+                      <img src={InformationIcon} alt="" />
+                      <img
+                        src={copyIcon}
+                        alt="Copy"
+                        style={{ cursor: "pointer", width: "15px" }}
+                      />
+                    </h1>
+                  )}
+                </div>
                 <div className="flex items-center text-white gap-1.5 relative">
                   <label
                     htmlFor="customCheckbox"
@@ -377,9 +665,11 @@ export default function ActivePageFarming({ user }) {
                   </label>
                 </div>
 
-                <div className="mt-3">
+                <div
+                  className="mt-3"
+                  onClick={() => handleOpenModal("fourthModal")}
+                >
                   <Button
-                    handleSignIn={handleCloseAll}
                     className={
                       "border-2 border-transparent transition-all duration-300 rounded-xl hover:border-2 hover:border-[#43AFFF] hover:text-white hover:bg-transparent"
                     }
@@ -390,6 +680,141 @@ export default function ActivePageFarming({ user }) {
             </div>
           </div>
         </div>
+      )}
+      {activeModal === "fourthModal" && (
+        <div
+          onClick={handleCloseAll}
+          className="bg-some-black overlay  z-40 fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
+        >
+          <div
+            className="flex items-center bg-red-100 justify-center h-[1vh] z-40"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="text-white">
+              <div className="bg-[#141414] py-4 px-3 rounded-[20px] max-w-[350px] w-full">
+                <div className="bg-[#43AFFF] w-[90px] h-[90px] flex items-center justify-center rounded-full transform-element marginAuto">
+                  <img className="w-[45px] h-[45px]" src={CheckIcon} alt="" />
+                </div>
+                <div className="neu-trial">
+                  <h2 className="text-lg text-center mt-4 ">
+                    You have been added to the waiting list. The greater your
+                    investment, the faster you move toward your turn!
+                  </h2>
+                  <p className="text-center text-[#999C9E] text-xs mt-4">
+                    Your farming has been successfully <br /> launched and
+                    activated!
+                  </p>
+                  <div onClick={() => handleOpenModal("fivesModal")}>
+                    <Button
+                      className={"rounded-[12px] mt-7"}
+                      title={"Go to Waiting List"}
+                    ></Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {activeModal === "fivesModal" && (
+        <>
+          <div
+            onClick={handleCloseAll}
+            className="bg-some-black active-page- overlay z-40 fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
+          >
+            <div
+              className="flex items-center justify-center h-[1vh] z-40"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center w-[900px] table-element-max-w text-white justify-center">
+                <div className="bg-[#141414] py-2 md:py-4 px-3 rounded-[20px] max-w-[900px] w-full !relative table-element-responsice pt-[20px]">
+                  <div className="!relative w-full h-[4vh]">
+                    <div className="flex items-center justify-between mb-1 md:px-5 scrol-element-table">
+                      <div>
+                        <h2 className="text-sm waiting-list">Waiting List</h2>
+                      </div>
+                      <div
+                        className="w-[60%] md:w-[30%]"
+                        onClick={handleMakeDeposit}
+                      >
+                        <div onClick={() => handleOpenModal("firstModal")}>
+                          <Button
+                            className={"rounded-[12px] neu-trial w-[30%]"}
+                            title={"Make a deposit"}
+                          ></Button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute left-0 bg-[#191919] w-full h-[3px] my-4"></div>
+
+                  <div className="w-full table-element table-element-res !mt-8">
+                    <table class=" w-full">
+                      <thead className="thead ">
+                        <tr className="bg-[#191919] ">
+                          <th className="flex gap-2 items-center py-4 px-3">
+                            <span className="text-[#999C9E] neu-trial">#</span>
+                            <p className="neu-trial">Nickname</p>
+                          </th>
+                          <th className="neu-trial">Expected time</th>
+                          <th className="neu-trial">Date and time</th>
+                          <th className="neu-trial">Status</th>
+                        </tr>
+                      </thead>
+                      {userData.map((u, index) => (
+                        <tbody className="">
+                          <tr className="hover:bg-[#404040] cursor-pointer neu-trial  text-center">
+                            <td className="flex items-center gap-3  py-4 px-2 rounded-full">
+                              <p className="text-[#999C9E] text-sm neu-trial ">
+                                {index + 1}
+                              </p>
+                              <div className="h-[26px] bg-[#2C2C2C] flex items-center justify-center !rounded-full !w-[26px]">
+                                <img className="" src={userCircle} alt="" />
+                              </div>
+                              <p className="text-sm neu-trial">{u.username}</p>
+                            </td>
+                            <td className="text-sm neu-trial">
+                              <p>15 minute</p>
+                            </td>
+                            <td className="text-sm">
+                              {new Date(u.createdAt).toLocaleDateString(
+                                "en-US",
+                                {
+                                  year: "numeric",
+                                  month: "long",
+                                  day: "numeric",
+                                }
+                              )}
+                            </td>
+                            {u.username.length > 12 ? (
+                              <td classNa me="neu-trial">
+                                <div className="bg-[#172518] !w-fit marginAuto p-2 text-sm rounded-md text-[#28A745]">
+                                  <div className="flex items-center !w-fit justify-center gap-2">
+                                    <div className="!w-2 rounded-full h-2 bg-[#28A745]"></div>
+                                    <div className="!w-fit">Completed</div>
+                                  </div>
+                                </div>
+                              </td>
+                            ) : (
+                              <td className="neu-trial">
+                                <div className="bg-[#251B17] !w-fit marginAuto p-2 text-sm rounded-md text-[#ED5C1C]">
+                                  <div className="flex items-center !w-fit justify-center gap-2">
+                                    <div className="!w-2 rounded-full h-2 bg-[#ED5C1C]"></div>
+                                    <div className="!w-fit">Process</div>
+                                  </div>
+                                </div>
+                              </td>
+                            )}
+                          </tr>
+                        </tbody>
+                      ))}
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
       )}
     </>
   );

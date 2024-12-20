@@ -1,15 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import React, { useState, useEffect, useRef } from 'react'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
-const CodeViewer = ({copyText}) => {
-  const [visibleText, setVisibleText] = useState('');
-  const [animationComplete, setAnimationComplete] = useState(false);
-  const codeContainerRef = useRef(null);
+const CodeViewer = ({ copyText, onAnimationComplete }) => {
+  const [visibleText, setVisibleText] = useState('')
+  const [animationComplete, setAnimationComplete] = useState(false)
+  const codeContainerRef = useRef(null)
 
   const sampleCode = `
 import hashlib
-
 def hash_string(input_string, algorithm='md5'):
     if algorithm == 'md5':
         hash_object = hashlib.md5()
@@ -40,40 +39,48 @@ if __name__ == "__main__":
             print(f"Match found: '{user_input}'")
         else:
             print(f"No match found for: '{user_input}'")
-  `;
+  `
 
   useEffect(() => {
-    const words = sampleCode.split(' ');
-    let index = 0;
+    if (animationComplete) return // Prevent multiple animations
+
+    const words = sampleCode.split(' ')
+    let index = 0
 
     const interval = setInterval(() => {
       if (index < words.length) {
-        setVisibleText(prev => (prev ? `${prev} ${words[index]}` : words[index]));
-        index++;
-        codeContainerRef.current.scrollTop = codeContainerRef.current.scrollHeight;
+        setVisibleText(prev =>
+          prev ? `${prev} ${words[index]}` : words[index]
+        )
+        index++
+        codeContainerRef.current.scrollTop =
+          codeContainerRef.current.scrollHeight
       } else {
-        clearInterval(interval);
-        setAnimationComplete(true);
+        clearInterval(interval)
+        setAnimationComplete(true)
+        if (onAnimationComplete) {
+          onAnimationComplete()
+        }
       }
-    }, 10);
+    }, 10)
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(interval)
+  }, [animationComplete, onAnimationComplete, sampleCode])
 
   return (
     <div
       style={{
         fontFamily: 'Arial, sans-serif',
         maxHeight: '300px',
-        overflowY: 'auto',
+        overflowY: 'auto'
       }}
       ref={codeContainerRef}
     >
-      <SyntaxHighlighter language="python" style={oneDark}>
+      <SyntaxHighlighter language='python' style={oneDark}>
         {visibleText}
       </SyntaxHighlighter>
     </div>
-  );
-};
+  )
+}
 
-export default CodeViewer;
+export default CodeViewer

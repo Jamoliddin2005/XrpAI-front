@@ -22,6 +22,9 @@ import Dropdown3 from "../components/shared/dropdown-3";
 import TooggleDropdown from "../components/accordion";
 import Browsing from "../assets/icons/browsing.svg";
 import { Link, useNavigate } from "react-router-dom";
+import Calculator from "../components/shared/calculator";
+import Successfully from "../components/shared/successfully";
+import UsersList from "../components/shared/users-list";
 
 export default function MainActivePage({ user }) {
   const [navbar, setNavbar] = useState(false);
@@ -58,6 +61,8 @@ export default function MainActivePage({ user }) {
   const dropdownOptions = ["Week 1", "Week 2", "Week 3", "Week 4"];
   return (
     <>
+        <Calculator />
+
       <div className="flex">
         <div data-aos="fade-right" className="hidden 2xl:block  fixed">
           <div className="h-[100vh] main-page-sidebar fixed">
