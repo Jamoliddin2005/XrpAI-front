@@ -23,8 +23,6 @@ import TooggleDropdown from "../components/accordion";
 import Browsing from "../assets/icons/browsing.svg";
 import { Link, useNavigate } from "react-router-dom";
 import Calculator from "../components/shared/calculator";
-import Successfully from "../components/shared/successfully";
-import UsersList from "../components/shared/users-list";
 
 export default function MainActivePage({ user }) {
   const [navbar, setNavbar] = useState(false);

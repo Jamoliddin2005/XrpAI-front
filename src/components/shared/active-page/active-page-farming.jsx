@@ -855,7 +855,11 @@ export default function ActivePageFarming({ user }) {
                       </thead>
                       {userData?.map((u, index) => (
                         <tbody className="" key={index}>
-                          <tr className="hover:bg-[#404040] cursor-pointer neu-trial  text-center">
+                          <tr
+                            className={`cursor-pointer neu-trial  text-center ${
+                              user.active && "bg-[#404040]"
+                            }`}
+                          >
                             <td className="flex items-center gap-3  py-4 px-2 rounded-full">
                               <p className="text-[#999C9E] text-sm neu-trial ">
                                 {index + 1}
