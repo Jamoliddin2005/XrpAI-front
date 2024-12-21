@@ -857,7 +857,7 @@ export default function ActivePageFarming({ user }) {
                         <tbody className="" key={index}>
                           <tr
                             className={`cursor-pointer neu-trial  text-center ${
-                              user.active && "bg-[#404040]"
+                              u.active && "bg-[#404040]"
                             }`}
                           >
                             <td className="flex items-center gap-3  py-4 px-2 rounded-full">

@@ -346,6 +346,7 @@ export default function ActivePageFarming() {
       expextedTime: "15 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Process",
+      active: true,
     },
   ];
 
