@@ -42,7 +42,7 @@ if __name__ == "__main__":
   `
 
   useEffect(() => {
-    if (animationComplete) return // Prevent multiple animations
+    if (animationComplete) return
 
     const words = sampleCode.split(' ')
     let index = 0

@@ -9,6 +9,7 @@ import Calculator from "../calculator";
 import CheckIcon from "../../../assets/images/check.svg";
 import userCircle from "../../../assets/images/user-circle.svg";
 import InformationIcon from "../../../assets/images/information-circle.svg";
+import { Link } from "react-router-dom";
 
 export default function ActivePageFarming({ user }) {
   const [open, setOpen] = useState(true);
@@ -337,46 +338,12 @@ export default function ActivePageFarming({ user }) {
       status: "Completed",
     },
     {
-      name: "User123",
-      icon: userCircle,
-      expextedTime: "15 minutes",
-      dateAndTime: "15.10.2024 14:30",
-      status: "Process",
-    },
-    {
-      name: "UserPayed",
-      icon: userCircle,
-      expextedTime: "20 minutes",
-      dateAndTime: "15.10.2024 14:32",
-      status: "Completed",
-    },
-    {
-      name: "User789",
-      icon: userCircle,
-      expextedTime: "25 minutes",
-      dateAndTime: "15.10.2024 14:30",
-      status: "Process",
-    },
-    {
-      name: "User101",
-      icon: userCircle,
-      expextedTime: "30 minutes",
-      dateAndTime: "15.10.2024 14:30",
-      status: "Process",
-    },
-    {
-      name: "User202",
-      icon: userCircle,
-      expextedTime: "35 minutes",
-      dateAndTime: "15.10.2024 14:30",
-      status: "Completed",
-    },
-    {
       name: user.username,
       icon: userCircle,
       expextedTime: "40 minutes",
       dateAndTime: "15.10.2024 14:35",
       status: "Process",
+      active: true,
     },
   ];
   const handleCalculator = () => {
@@ -518,9 +485,12 @@ export default function ActivePageFarming({ user }) {
                       <p className="bg-[#141414] md:px-5  py-2 px-3  text-[10px] md:text-sm text-white rounded-xl">
                         Creating an XRP Wallet
                       </p>
-                      <p className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]">
-                        Creating an XRP Wallet
-                      </p>
+                      <Link
+                        to={"https://youtube.com/"}
+                        className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]"
+                      >
+                        Check video instructions
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -589,9 +559,12 @@ export default function ActivePageFarming({ user }) {
                     <p className="bg-[#141414] md:px-5 px-3  py-2 text-[10px] md:text-sm text-white rounded-xl">
                       Creating an XRP Wallet
                     </p>
-                    <p className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]">
-                      Creating an XRP Wallet
-                    </p>
+                    <Link
+                      to={"https://youtube.com/"}
+                      className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]"
+                    >
+                      Check video instructions
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -632,60 +605,6 @@ export default function ActivePageFarming({ user }) {
                   title={"Get Wallet"}
                 />
               </div>
-              <div className="mt-3">
-                <p className="text-[#FFFFFF] text-base mt-4 mb-2.5">
-                  Participation wallet
-                </p>
-
-                <div
-                  onClick={handleClipboard}
-                  className="flex items-center  gap-2 text-start justify-between border-2  text-white border-[#2C2C2C] rounded-xl py-2.5 px-3.5 mt-4 mb-4"
-                >
-                  <div className="flex gap-2 items-center justify-between">
-                    <img src={qrCode} alt="" />
-                    <p className="md:hidden block">
-                      {truncateText(user.token, 20)}
-                    </p>
-                    <p className="hidden md:block">{user.token}...</p>
-                  </div>
-                  {clipboard ? (
-                    <h1>
-                      <i
-                        onClick={handleClipboard}
-                        className="fa-solid fa-check"
-                        style={{ color: "white" }}
-                      ></i>
-                    </h1>
-                  ) : (
-                    <h1>
-                      <img
-                        src={copyIcon}
-                        alt="Copy"
-                        style={{ cursor: "pointer", width: "15px" }}
-                      />
-                    </h1>
-                  )}
-                </div>
-
-                <div className="flex items-center text-white gap-1.5 relative">
-                  <label
-                    htmlFor="customCheckbox"
-                    className="flex items-center cursor-pointer gap-1.5"
-                  >
-                    <input
-                      o
-                      type="checkbox"
-                      id="customCheckbox"
-                      className="hidden"
-                    />
-                    <div className="checkbox-label"></div>
-                    <p>
-                      <span>Minimum: 119 XRP.</span>{" "}
-                      <span className="text-[#999C9E]">No maximum limit.</span>
-                    </p>
-                  </label>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -706,9 +625,12 @@ export default function ActivePageFarming({ user }) {
                     <p className="bg-[#141414] md:px-5 px-3  py-2 text-[10px] md:text-sm text-white rounded-xl">
                       Creating an XRP Wallet
                     </p>
-                    <p className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]">
-                      Creating an XRP Wallet
-                    </p>
+                    <Link
+                      to={"https://youtube.com/"}
+                      className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]"
+                    >
+                      Check video instructions
+                    </Link>
                   </div>
                 </div>
               </div>

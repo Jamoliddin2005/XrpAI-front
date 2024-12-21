@@ -4,6 +4,7 @@ import axios from "axios";
 
 const BarChartComponent = () => {
   const [series, setSeries] = useState([{ data: [] }]);
+  const [categories, setCategories] = useState([]);
   const colors = [
     "#43AFFF",
     "#43AFFF",
@@ -15,6 +16,19 @@ const BarChartComponent = () => {
   ];
 
   useEffect(() => {
+    const generateDates = () => {
+      const dates = [];
+      const today = new Date();
+      for (let i = 6; i >= 0; i--) {
+        const date = new Date(today);
+        date.setDate(today.getDate() - i);
+        dates.push(date.toLocaleDateString("en-US", { month: "short", day: "numeric" }));
+      }
+      setCategories(dates);
+    };
+
+    generateDates();
+
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -57,15 +71,7 @@ const BarChartComponent = () => {
       style: { colors: ["#fff"] },
     },
     xaxis: {
-      categories: [
-        "Dec 3",
-        "Dec 4",
-        "Dec 5",
-        "Dec 6",
-        "Dec 7",
-        "Dec 8",
-        "Dec 9",
-      ],
+      categories: categories,
       labels: { style: { fontSize: "12px", color: "#fff" } },
     },
     grid: {

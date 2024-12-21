@@ -434,8 +434,27 @@ input[type="checkbox"]:checked + .checkbox-label::after {
   transition: 0.4s;
 }
 
-.active-block-video {
+.card-hover:hover {
   border: 2px solid #203f56;
+}
+
+.card-hover .rounded-full {
+  background-color: #43afff;
+}
+
+.card-hover:hover .rounded-full img {
+  filter: brightness(2);
+}
+
+.card-hover:hover .star img {
+  filter: invert(1);
+}
+
+.card-hover p{
+  transition: .3s;
+}
+.card-hover:hover p{
+  color: #43AFFF;
 }
 
 .card-image {

@@ -11,7 +11,7 @@ export default function GetStartedActive () {
       icon: SmallIcon,
       headText: 'Video intruction',
       content: 'Investing becomes easier with...',
-      videoUrl: '/'
+      videoUrl: 'https://www.youtube.com/'
     },
     {
       icon: TeachIcon,
@@ -58,50 +58,50 @@ export default function GetStartedActive () {
           </div>
         </div>
         <div className='scrol-element-22 pr-2'>
-          <div className='flex mb-1.5 justify-between neu-trial bg-[#1D1D1D] py-2.5 px-2.5 rounded-xl card cursor-pointer active-block-video'>
+        <div className="flex mb-1.5 justify-between neu-trial bg-[#1D1D1D] py-2.5 px-2.5 rounded-xl card cursor-pointer card-hover">
             <Link to={`${messagesData[0].videoUrl}`}>
-              <div className='flex items-center gap-2'>
-                <div className='w-10 h-10 flex items-center justify-center  rounded-full bg-[#43afff]'>
-                  <img src={messagesData[0].icon} alt='' />
-                </div>
+              <div className="flex items-center gap-2">
+              <div className="w-10 h-10 flex items-center justify-center card-image bg-transparent  rounded-full">
+                    <img src={messagesData[0].icon} alt="" />
+                  </div>
                 <div>
-                  <h3 className='text-[#fff] text-xs hover-text'>
-                    {messagesData[0].headText}
-                  </h3>
-                  <p className='text-[#43AFFF] text-[10px]'>
-                    {messagesData[0].content}
-                  </p>
+                <h3 className="text-[#fff] text-xs hover-text">
+                      {messagesData[0].headText}
+                    </h3>
+                    <p className="text-[#2E2E2E] text-[10px]">
+                      {messagesData[0].content}
+                    </p>
                 </div>
               </div>
             </Link>
-            <div className='cursor-pointer'>
-              <img src={Star} alt='' />
+            <div className="cursor-pointer star">
+              <img src={Star} alt="" />
             </div>
           </div>
           {messagesData.slice(1).map((message, index) => {
             return (
               <div
                 key={index}
-                className='flex mb-1.5 justify-between neu-trial bg-[#1D1D1D] py-2.5 px-2.5 rounded-xl card cursor-pointer'
+                className="flex mb-1.5 justify-between neu-trial bg-[#1D1D1D] py-2.5 px-2.5 rounded-xl card cursor-pointer "
               >
-                <div className='flex items-center gap-2 '>
-                  <div className='w-10 h-10 flex items-center justify-center card-image bg-transparent  rounded-full'>
-                    <img src={message.icon} alt='' />
+                <div className="flex items-center gap-2 ">
+                  <div className="w-10 h-10 flex items-center justify-center card-image bg-transparent  rounded-full">
+                    <img src={message.icon} alt="" />
                   </div>
                   <div>
-                    <h3 className='text-[#898989] text-xs hover-text'>
+                    <h3 className="text-[#fff] text-xs hover-text">
                       {message.headText}
                     </h3>
-                    <p className='text-[#2E2E2E] text-[10px]'>
+                    <p className="text-[#2E2E2E] text-[10px]">
                       {message.content}
                     </p>
                   </div>
                 </div>
-                <div className='cursor-pointer'>
-                  <img src={Star} alt='' />
+                <div className="cursor-pointer star">
+                  <img src={Star} alt="" />
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
