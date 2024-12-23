@@ -5,6 +5,7 @@ import Button from "../../buttons/signButtons";
 import copyIcon from "../../../assets/icons/copy-icon.svg";
 import qrCode from "../../../assets/icons/qr-code.svg";
 import CodeViewer from "../../hideCode";
+import CodeViewer2 from "../../hideCode-notRegistered";
 import Calculator from "../calculator";
 import InformationIcon from "../../../assets/images/information-circle.svg";
 import CheckIcon from "../../../assets/images/check.svg";
@@ -20,7 +21,9 @@ export default function ActivePageFarming() {
   const [copyText2, setCopyText2] = useState("");
   const [calculator, setCalculator] = useState(false);
   const [isCodeComplete, setIsCodeComplete] = useState(false);
+  const [isCodeComplete2, setIsCodeComplete2] = useState(false);
   const [secondClipboard, setSecondClipboard] = useState(false);
+  const [consoleBoolean, setConsoleBoolean] = useState(false);
 
   const [activeModal, setActiveModal] = useState(null);
 
@@ -346,7 +349,6 @@ export default function ActivePageFarming() {
       expextedTime: "15 minutes",
       dateAndTime: "15.10.2024 14:30",
       status: "Process",
-      active: true,
     },
   ];
 
@@ -376,6 +378,8 @@ export default function ActivePageFarming() {
     setOpenCodeView(false);
     setOpen(true);
     setIsCodeComplete(false);
+    setIsCodeComplete2(false);
+    setConsoleBoolean(false);
   };
 
   const handleClipboard = () => {
@@ -612,14 +616,42 @@ export default function ActivePageFarming() {
                   </h1>
                 )}
               </div>
-              <div onClick={() => handleOpenModal("thirdModal")}>
-                <Button
-                  className={
-                    "border-2 border-transparent transition-all duration-300 rounded-xl hover:border-2 hover:border-[#43AFFF] hover:text-white hover:bg-transparent"
-                  }
-                  title={"Get Wallet"}
-                />
-              </div>
+
+              {consoleBoolean ? (
+                <>
+                  <button
+                    onClick={() => handleOpenModal("thirdModal")}
+                    className={`cursor-pointer border !border-[#43AFFF] hover:bg-transparent hover:border bg-[#43AFFF] rounded-xl !text-white w-full py-3 ${
+                      isCodeComplete2 ? (
+                        <p>1 </p>
+                      ) : (
+                        " cursor-not-allowed border !border-[#43AFFF] rounded-xl !text-white w-full py-3 opacity-30"
+                      )
+                    }`}
+                    title={"Get Wallet"}
+                    disabled={!isCodeComplete2}
+                  >
+                    Get Wallet
+                  </button>
+                  <div className="rounded-xl border-2 border-[#1A1A1A] py-5 px-2 md:px-7 mt-3">
+                    <>
+                      <CodeViewer2
+                        onAnimationComplete={() => setIsCodeComplete2(true)}
+                        copyText={copyText2}
+                      />
+                    </>
+                  </div>
+                </>
+              ) : (
+                <div onClick={() => setConsoleBoolean(true)}>
+                  <Button
+                    className={
+                      "border-2 border-transparent transition-all duration-300 rounded-xl hover:border-2 hover:border-[#43AFFF] hover:text-white hover:bg-transparent"
+                    }
+                    title={"Get Wallet"}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -687,7 +719,7 @@ export default function ActivePageFarming() {
                 ) : (
                   <Button
                     className={
-                      "!bg-transparent border-2 border-[#43AFFF] rounded-xl !text-white"
+                      "border-2 border-transparent transition-all duration-300 rounded-xl hover:border-2 hover:border-[#43AFFF] hover:text-white hover:bg-transparent"
                     }
                     title={"Copy hash"}
                   ></Button>
