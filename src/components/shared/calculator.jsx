@@ -13,24 +13,30 @@ export default function Calculator({ status, onClose }) {
     setOpen(status);
   }, [status]);
 
+  useEffect(() => {
+    calculateProfit();
+  }, [deposit, profitPercentage, activeButton]);
+
   const closeModal = () => {
     setOpen(false);
     onClose();
   };
 
   const calculateProfit = () => {
+    const dayProfit = (deposit / 100) * (activeButton * 10);
     const calculatedProfit =
-      deposit + (deposit * (profitPercentage || 0)) / 100;
+      deposit + dayProfit + (deposit * (profitPercentage || 0)) / 100;
     setMinimalProfit(calculatedProfit.toFixed(2));
   };
 
   const handlePercentageChange = (e) => {
-    const value = e.target.value;
-    setProfitPercentage(value === "" ? "" : Number(value));
+    const value = Number(e.target.value);
+    setProfitPercentage(value);
   };
 
   const handleDepositChange = (e) => {
-    setDeposit(Number(e.target.value));
+    const value = Number(e.target.value);
+    setDeposit(value);
   };
 
   const buttonsData = [
@@ -44,41 +50,13 @@ export default function Calculator({ status, onClose }) {
   ];
 
   const handleDayClick = (day) => {
-    let addedProfit = 0;
-
-    if (day === 1) {
-      addedProfit = (deposit / 100) * 10;
-    }
-    if (day === 2) {
-      addedProfit = (deposit / 100) * 20;
-    }
-    if (day === 3) {
-      addedProfit = (deposit / 100) * 30;
-    }
-    if (day === 4) {
-      addedProfit = (deposit / 100) * 40;
-    }
-    if (day === 5) {
-      addedProfit = (deposit / 100) * 50;
-    }
-    if (day === 6) {
-      addedProfit = (deposit / 100) * 60;
-    }
-    if (day === 7) {
-      addedProfit = (deposit / 100) * 70;
-    }
-
-    const newProfit =
-      deposit + addedProfit + (deposit * (profitPercentage || 0)) / 100;
-    setMinimalProfit(newProfit.toFixed(2));
-
     setActiveButton(day);
   };
 
   return (
     <>
       {open && (
-        <div className="">
+        <div>
           <div
             className="bacground-some-blacc w-full h-full fixed top-0 left-0 z-10"
             onClick={closeModal}
@@ -163,13 +141,13 @@ export default function Calculator({ status, onClose }) {
 
               <div className="flex justify-between items-center gap-2.5 mt-5">
                 <button
-                  onClick={calculateProfit}
+                  onClick={closeModal}
                   className="bg-[#43AFFF] neu-trial py-2 w-full rounded-[16px] text-black"
                 >
                   Calculate
                 </button>
                 <div>
-                  <Link to={"https://youtube.com/"} >
+                  <Link to={"https://youtube.com/"}>
                     <img src={SmallIcon} alt="" />
                   </Link>
                 </div>
