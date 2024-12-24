@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-const CodeViewer = ({ copyText, onAnimationComplete }) => {
+const CodeViewer = ({ copyText, onAnimationComplete, memoCode }) => {
   const [visibleText, setVisibleText] = useState("");
   const [animationComplete, setAnimationComplete] = useState(false);
   const codeContainerRef = useRef(null);
@@ -39,7 +39,7 @@ if name == "main":
     unique_memo = generate_unique_memo()
     
     print(f"Generated wallet: {${copyText}}")
-    print(f"Unique memo: {3457582}")
+    print(f"Unique memo: {${memoCode}}")
 
     expected_hash = hash_string(wallet_address + unique_memo, algorithm='md5')
     algorithm = 'md5'

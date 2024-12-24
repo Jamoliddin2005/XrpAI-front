@@ -16,7 +16,6 @@ export default function ActivePageFarming() {
   const [open, setOpen] = useState(true);
   const [clipboard, setClipboard] = useState(false);
   const [clipboard2, setClipboard2] = useState(false);
-  const [clipboard3, setClipboard3] = useState(false);
   const [openCodeView, setOpenCodeView] = useState(false);
   const [copyText2, setCopyText2] = useState("");
   const [calculator, setCalculator] = useState(false);
@@ -24,8 +23,9 @@ export default function ActivePageFarming() {
   const [isCodeComplete2, setIsCodeComplete2] = useState(false);
   const [secondClipboard, setSecondClipboard] = useState(false);
   const [consoleBoolean, setConsoleBoolean] = useState(false);
-
+  const [randomCash, setRandomCash] = useState("");
   const [activeModal, setActiveModal] = useState(null);
+  const [codeMemo, setCodeMemo] = useState("");
 
   const userData = [
     {
@@ -387,7 +387,7 @@ export default function ActivePageFarming() {
     setTimeout(() => {
       setClipboard(false);
     }, 3000);
-    navigator.clipboard.writeText(copyText).then(() => {
+    navigator.clipboard.writeText(randomCash).then(() => {
       setClipboard(true);
       setTimeout(() => setClipboard(false), 3000);
     });
@@ -404,19 +404,19 @@ export default function ActivePageFarming() {
     });
   };
 
-  const handleClipboard3 = () => {
-    setClipboard3(true);
-    setTimeout(() => {
-      setClipboard3(false);
-    }, 3000);
-    navigator.clipboard.writeText(copyText3).then(() => {
-      setClipboard3(true);
-      setTimeout(() => setClipboard3(false), 3000);
-    });
-  };
+  function generateRandomText(length) {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+    }
+    return result;
+  }
 
-  const copyText = "rnPNSonfEN1TWkPH4Kwvkk3693sCT4tsZv";
-  const copyText3 = "C33B04D2E95A73D1CD0A82E93B199E";
+  const copyText = generateRandomText(65);
 
   useEffect(() => {
     const randomString = copyText;
@@ -432,12 +432,112 @@ export default function ActivePageFarming() {
     setTimeout(() => {
       setSecondClipboard(false);
     }, 3000);
-    navigator.clipboard.writeText(hashMEMO).then(() => {
+    navigator.clipboard.writeText(codeMemo).then(() => {
       setSecondClipboard(true);
       setTimeout(() => setSecondClipboard(false), 3000);
     });
   };
-  const hashMEMO = "3457582";
+
+  useEffect(() => {
+    const hashMEMO = Math.floor(Math.random() * 10000000).toString();
+    setCodeMemo(hashMEMO);
+  }, []);
+
+  const availableTokens = [
+    "rwkKmLEpfx6BVDrs6bhiwncsFgPntLaY7i",
+    "rfqRff8Jp8ponq1Rq1nRy5HYDvGGNLHo4m",
+    "rLKPyAGWd5ZJMsPnfLR9rSu9JUiMokGxVm",
+    "rfrStx3zLYQpyz1nAav9SHn1WoNoQrhaKw",
+    "rB1bY7rSdzT3NVGYJNJ4FonroGi1MTLopF",
+    "rsPwMrK9B8kXaw1aMum1yVs7qbhjTHSDRW",
+    "rnCUjUQMZCMYD1Vb5XLHQ5qgFhwerSmznp",
+    "rEDrAdvtmiD1dgpzewYBLWhRhwApor4Rjy",
+    "rBzTCwM1rMdi4zoUr4HyY1s1TJ9wf9KZz",
+    "rn3TgmvkjSiek51moYKJ4Hds6KfaAD5cJR",
+    "rBupSWiAmDJxX25DaCkpWMik4Xg2K4Y5eb",
+    "rwaBdkg5KSn7F7BqtyheXJhDuC38Es35eY",
+    "rDmZSqHLghomDhjMi6KuM5CoyKcaRjbF3z",
+    "rH6za3AF4nA8DBgLs7DcWsguqWrb2Hocok",
+    "rsvCv3gAHQbCzYpmcrj3vpP6UH4FvAgtkZ",
+    "r3Aua39NqzmjwtjBXVNYX12rr1yH35dRX",
+    "rhpyaVSsXWhsoxEeSkPDk5eXFsAcPCbd9P",
+    "rNMZuPd7eXZkktinGYJmUSA5YmS5bUNhLk",
+    "rnL1Ni5FPLwGWD5F6E8MkcneqYxZPpnJP3",
+    "rDGwKw7qJqrWWe2unLaxLehZedWv8SDBxf",
+    "rP6DocMtScPXYiYtv8hwupRRJpAtA1fuVp",
+    "r3kSg4zwEMWLwLBPFPDfuK9ja9yrShhboa",
+    "rG6khTY8q2SbfiDAaXabBLGwSxjQfwZzi6",
+    "rsbYWYXFw2dzTh1RGEso7jR5FyYQ86qvZV",
+    "r9Jx3fPG2rXhVZY96z2mCvifMa3izSZQ4e",
+    "rsYr37jCgMbTksxJnq7924xkhDpxaYdYfL",
+    "rpjeVBSuYWH2xzHXD4cCKPvrybE2qb75RD",
+    "rZBSqrXkEyRuU1WfVZpVn4LUWfWcxxoa8",
+    "rwz1bBRhJnEhuSfDj5tQHaYd6wncCt23sY",
+    "r9kKzzUQpsMLgCvC1uGysC78ZkzbZd4ReM",
+    "rHTW8woW82Ydprb3KBsYGF7bzQQppMQxD8",
+    "rfsXLSfbptuA6Jc7KyKtCvLnqxPFL7NMkh",
+    "rwycD6NrmJSdZFwCeipG3FGNrBJaH2kXGY",
+    "r9NY1gYCDUtNjYHXAAPLC32TXXMsZGZojN",
+    "rKsQePEWEuf8j7DRx3oW6tuqSPqnF4Gku5",
+    "r3w4YRD7VqQL9tedKmV5qxJdNt1envoJRg",
+    "rNx9DDMSnPB7PK66PNsfDKY81CtyEYvySd",
+    "rM8VApRhWh3ddc1dEsy4JjCWAtAPoF6sds",
+    "rfv3Ymf8LkEZsNdPJ4RGjWqmAi1ar1z3Qd",
+    "rfs6jkofjofDUzL32tZ3Xmx7LuNtTmZFH2",
+    "rRzJmJpv3qvsw6KQV52fUpfi2SxfhAQo1",
+    "rDst4HyExXRNbMPoWdV3XDjYMBAPYGLKCr",
+    "rDzgHLjWPvJ7dh2sRPqP3sQSNWPNCoz8Qy",
+    "rfL1mrEAnKMd1FruFv92VkNCEzUgQ1Vjr1",
+    "rMgBWzcUPApVfVq2GLaYd9JDMr4aS3zmiJ",
+    "rDsbXyu1EHJQqsoUSrkGMCDMn93ss6RD7b",
+    "rEkUv3ZozVrfMogSkUG4pAMzhpvhw9saWw",
+    "rH6A4GfkwtS4TXoSaCrk1i2B6dc8tmQB3k",
+    "rUeXH5AhqMntwSqy3xB3Kh3e8diyGGqjmJ",
+    "rwkKmLEpfx6BVDrs6bhiwncsFgPntLaY7i",
+    "rfqRff8Jp8ponq1Rq1nRy5HYDvGGNLHo4m",
+    "rLKPyAGWd5ZJMsPnfLR9rSu9JUiMokGxVm",
+    "rfrStx3zLYQpyz1nAav9SHn1WoNoQrhaKw",
+    "rB1bY7rSdzT3NVGYJNJ4FonroGi1MTLopF",
+    "rsPwMrK9B8kXaw1aMum1yVs7qbhjTHSDRW",
+    "rnCUjUQMZCMYD1Vb5XLHQ5qgFhwerSmznp",
+    "rEDrAdvtmiD1dgpzewYBLWhRhwApor4Rjy",
+    "rBzTCwM1rMdi4zoUr4HyY1s1TJ9wf9KZz",
+    "rn3TgmvkjSiek51moYKJ4Hds6KfaAD5cJR",
+    "rBupSWiAmDJxX25DaCkpWMik4Xg2K4Y5eb",
+    "rwaBdkg5KSn7F7BqtyheXJhDuC38Es35eY",
+    "rDmZSqHLghomDhjMi6KuM5CoyKcaRjbF3z",
+    "rH6za3AF4nA8DBgLs7DcWsguqWrb2Hocok",
+    "rsvCv3gAHQbCzYpmcrj3vpP6UH4FvAgtkZ",
+    "r3Aua39NqzmjwtjBXVNYX12rr1yH35dRX",
+    "rhpyaVSsXWhsoxEeSkPDk5eXFsAcPCbd9P",
+    "rNMZuPd7eXZkktinGYJmUSA5YmS5bUNhLk",
+    "rnL1Ni5FPLwGWD5F6E8MkcneqYxZPpnJP3",
+    "rDGwKw7qJqrWWe2unLaxLehZedWv8SDBxf",
+    "rP6DocMtScPXYiYtv8hwupRRJpAtA1fuVp",
+    "r3kSg4zwEMWLwLBPFPDfuK9ja9yrShhboa",
+    "rG6khTY8q2SbfiDAaXabBLGwSxjQfwZzi6",
+    "rsbYWYXFw2dzTh1RGEso7jR5FyYQ86qvZV",
+    "r9Jx3fPG2rXhVZY96z2mCvifMa3izSZQ4e",
+    "rsYr37jCgMbTksxJnq7924xkhDpxaYdYfL",
+    "rpjeVBSuYWH2xzHXD4cCKPvrybE2qb75RD",
+    "rZBSqrXkEyRuU1WfVZpVn4LUWfWcxxoa8",
+    "rwz1bBRhJnEhuSfDj5tQHaYd6wncCt23sY",
+    "r9kKzzUQpsMLgCvC1uGysC78ZkzbZd4ReM",
+    "rHTW8woW82Ydprb3KBsYGF7bzQQppMQxD8",
+    "rfsXLSfbptuA6Jc7KyKtCvLnqxPFL7NMkh",
+    "rwycD6NrmJSdZFwCeipG3FGNrBJaH2kXGY",
+    "r9NY1gYCDUtNjYHXAAPLC32TXXMsZGZojN",
+    "rKsQePEWEuf8j7DRx3oW6tuqSPqnF4Gku5",
+  ];
+
+  function getRandomToken() {
+    const randomIndex = Math.floor(Math.random() * availableTokens.length);
+    return availableTokens[randomIndex];
+  }
+
+  useEffect(() => {
+    setRandomCash(getRandomToken());
+  }, []);
 
   return (
     <>
@@ -506,7 +606,7 @@ export default function ActivePageFarming() {
                       </p>
                       <Link
                         to={"https://youtube.com/"}
-                        className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]"
+                        className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E] m-auto"
                       >
                         Check video instructions
                       </Link>
@@ -568,7 +668,7 @@ export default function ActivePageFarming() {
           className="bg-some-black overlay z-40 fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
         >
           <div
-            className="flex items-center justify-center h-[1vh] z-40"
+            className="flex items-center justify-center h-[1vh] z-40 w-5/6"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-[#141414] max-w-[500px] w-full  p-5 border-radiusss">
@@ -580,7 +680,7 @@ export default function ActivePageFarming() {
                     </p>
                     <Link
                       to={"https://youtube.com/"}
-                      className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]"
+                      className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E] m-auto"
                     >
                       Check video instructions
                     </Link>
@@ -593,9 +693,11 @@ export default function ActivePageFarming() {
                   className="flex gap-2 items-center"
                 >
                   <img src={PrivacyIcon} alt="" />
-                  <p className="hidden md:block">{copyText2}...</p>
+                  <p className="hidden md:block">
+                    {truncateText(copyText2, 32)}
+                  </p>
                   <p className="md:hidden block">
-                    {truncateText(copyText2, 20)}...
+                    {truncateText(copyText2, 32)}...
                   </p>
                 </div>
                 {clipboard2 ? (
@@ -638,6 +740,7 @@ export default function ActivePageFarming() {
                       <CodeViewer2
                         onAnimationComplete={() => setIsCodeComplete2(true)}
                         copyText={copyText2}
+                        memoCode={codeMemo}
                       />
                     </>
                   </div>
@@ -674,7 +777,7 @@ export default function ActivePageFarming() {
                     </p>
                     <Link
                       to={"https://youtube.com/"}
-                      className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]"
+                      className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E] m-auto"
                     >
                       Check video instructions
                     </Link>
@@ -687,8 +790,13 @@ export default function ActivePageFarming() {
               >
                 <div className="flex gap-2 items-center">
                   <img src={PrivacyIcon} alt="" />
-                  <p className="md:hidden block">{copyText2}</p>
-                  <p className="md:block hidden">{copyText2}</p>
+                  <p className="md:hidden block">
+                    {" "}
+                    {truncateText(copyText2, 32)}
+                  </p>
+                  <p className="md:block hidden">
+                    {truncateText(copyText2, 32)}
+                  </p>
                 </div>
                 {clipboard2 ? (
                   <h1>
@@ -737,10 +845,8 @@ export default function ActivePageFarming() {
                 >
                   <div className="flex gap-2 items-center">
                     <img src={qrCode} alt="" />
-                    <p className="hidden md:block">
-                      rnPNSonfEN1TWkPH4Kwvkk3693sCT4tsZv
-                    </p>
-                    <p className="md:hidden block">rnPNSonfEN1TWkPH4K...</p>
+                    <p className="hidden md:block">{randomCash}</p>
+                    <p className="md:hidden block">{randomCash}</p>
                   </div>
                   {clipboard ? (
                     <i
@@ -764,7 +870,7 @@ export default function ActivePageFarming() {
                   className="flex items-center  gap-2 text-start justify-between border-2  text-white border-[#2C2C2C] rounded-xl py-2.5 px-3.5 mt-4 mb-4"
                 >
                   <div className="flex gap-2 items-center justify-between">
-                    <p className="">3457582</p>
+                    <p className="">{codeMemo}</p>
                   </div>
                   {secondClipboard ? (
                     <h1 className="flex gap-2 items-center cursor-pointer">
@@ -919,16 +1025,7 @@ export default function ActivePageFarming() {
                             <td className="text-sm neu-trial">
                               <p>15 minute</p>
                             </td>
-                            <td className="text-sm">
-                              {new Date(u.createdAt).toLocaleDateString(
-                                "en-US",
-                                {
-                                  year: "numeric",
-                                  month: "long",
-                                  day: "numeric",
-                                }
-                              )}
-                            </td>
+                            <td className="text-sm">{u.dateAndTime}</td>
                             {u.status === "Completed" ? (
                               <td classNa me="neu-trial">
                                 <div className="bg-[#172518] !w-fit marginAuto p-2 text-sm rounded-md text-[#28A745]">

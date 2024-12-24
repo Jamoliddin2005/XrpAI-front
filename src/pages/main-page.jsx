@@ -29,23 +29,61 @@ export default function MainPage() {
     {
       icon: CalendarIcon,
       text: "File Expoler",
+      submenu: [
+        "Farm",
+        "Assets",
+        "Analytics",
+        "Story",
+        "Community",
+        "Load Volumes",
+      ],
     },
     {
       icon: Browsing,
       text: "Solidity compiler",
+      submenu: [
+        "Farm",
+        "Assets",
+        "Analytics",
+        "Story",
+        "Community",
+        "Load Volumes",
+      ],
     },
     {
       icon: DiscoverIcon,
       text: "Deploy & run transactions",
+      submenu: [
+        "Farm",
+        "Assets",
+        "Analytics",
+        "Story",
+        "Community",
+        "Load Volumes",
+      ],
     },
     {
       icon: PasswordIcon,
       text: "Solhint Linter",
+      submenu: [
+        "Farm",
+        "Assets",
+        "Analytics",
+        "Story",
+        "Community",
+        "Load Volumes",
+      ],
     },
   ];
 
   const handleNavbar = () => {
     setNavbar(!navbar);
+  };
+
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
@@ -73,22 +111,46 @@ export default function MainPage() {
               <NewFile />
               <div className="border-top-bottom">
                 <ul>
-                  {navbarData.map((nav, index) => {
-                    return (
+                  {navbarData.map((nav, index) => (
+                    <div key={index} className="mb-4">
                       <div
-                        key={index}
-                        className="flex gap-2 items-center mb-4 sidebar-text trial"
+                        className="flex gap-2 items-center cursor-pointer sidebar-text trial"
+                        onClick={() => toggleAccordion(index)}
                       >
-                        <Link
-                          className="flex gap-2 items-center mb-4 sidebar-text  transition-all duration-300"
-                          to={"/main-active"}
+                        <img
+                          src={nav.icon}
+                          alt=""
+                          className="w-6 h-6"
+                          style={
+                            activeIndex === index ? { filter: "invert(1)" } : {}
+                          }
+                        />
+                        <h1
+                          className={`montreal ${
+                            activeIndex === index && "text-[#fff]"
+                          }`}
                         >
-                          <img src={nav.icon} alt="" />
-                          <h1 className="montreal">{nav.text}</h1>
-                        </Link>
+                          {nav.text}
+                        </h1>
                       </div>
-                    );
-                  })}
+                      {activeIndex === index && (
+                        <ul className="ml-8 mt-2 space-y-2">
+                          {nav.submenu.map((item, subIndex) => (
+                            <li key={subIndex} className="mt-2">
+                              <Link
+                                to={`/main-active/${item
+                                  .toLowerCase()
+                                  .replace(" ", "-")}`}
+                                className="text-[#fff] hover:text-blue-500 transition-all duration-300 "
+                              >
+                                {item}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ))}
                 </ul>
               </div>
               <div className="">
@@ -263,17 +325,48 @@ export default function MainPage() {
                 </div>
                 <NewFile />
                 <div className="border-top-bottom">
-                  <ul>
-                    {navbarData.map((nav, index) => (
+                <ul>
+                  {navbarData.map((nav, index) => (
+                    <div key={index} className="mb-4">
                       <div
-                        key={index}
-                        className="flex gap-2 items-center mb-4 sidebar-text"
+                        className="flex gap-2 items-center cursor-pointer sidebar-text trial"
+                        onClick={() => toggleAccordion(index)}
                       >
-                        <img src={nav.icon} alt="" />
-                        <h1 className="montreal">{nav.text}</h1>
+                        <img
+                          src={nav.icon}
+                          alt=""
+                          className="w-6 h-6"
+                          style={
+                            activeIndex === index ? { filter: "invert(1)" } : {}
+                          }
+                        />
+                        <h1
+                          className={`montreal ${
+                            activeIndex === index && "text-[#fff]"
+                          }`}
+                        >
+                          {nav.text}
+                        </h1>
                       </div>
-                    ))}
-                  </ul>
+                      {activeIndex === index && (
+                        <ul className="ml-8 mt-2 space-y-2">
+                          {nav.submenu.map((item, subIndex) => (
+                            <li key={subIndex} className="mt-2">
+                              <Link
+                                to={`/main-active/${item
+                                  .toLowerCase()
+                                  .replace(" ", "-")}`}
+                                className="text-[#fff] hover:text-blue-500 transition-all duration-300 "
+                              >
+                                {item}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ))}
+                </ul>
                 </div>
                 <div className="">
                   <p className="text-[#535353] mt-4 mb-2 md:mb-4 md:mt-8 grotesk">

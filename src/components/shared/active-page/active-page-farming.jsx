@@ -23,338 +23,335 @@ export default function ActivePageFarming({ user }) {
   const [isCodeComplete, setIsCodeComplete] = useState(false);
   const [isCodeComplete2, setIsCodeComplete2] = useState(false);
   const [consoleBoolean, setConsoleBoolean] = useState(false);
+  const [codeMemo, setCodeMemo] = useState("");
 
   const userData = [
     {
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "UserPayed",
       icon: userCircle,
       expextedTime: "20 minutes",
-      dateAndTime: "15.10.2024 14:32",
+      dateAndTime: "15/10/2024, 14:32",
       status: "Completed",
     },
     {
       name: "User789",
       icon: userCircle,
       expextedTime: "25 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User101",
       icon: userCircle,
       expextedTime: "30 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User202",
       icon: userCircle,
       expextedTime: "35 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Completed",
     },
     {
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "UserPayed",
       icon: userCircle,
       expextedTime: "20 minutes",
-      dateAndTime: "15.10.2024 14:32",
+      dateAndTime: "15/10/2024, 14:32",
       status: "Completed",
     },
     {
       name: "User789",
       icon: userCircle,
       expextedTime: "25 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User101",
       icon: userCircle,
       expextedTime: "30 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User202",
       icon: userCircle,
       expextedTime: "35 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Completed",
     },
     {
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "UserPayed",
       icon: userCircle,
       expextedTime: "20 minutes",
-      dateAndTime: "15.10.2024 14:32",
+      dateAndTime: "15/10/2024, 14:32",
       status: "Completed",
     },
     {
       name: "User789",
       icon: userCircle,
       expextedTime: "25 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User101",
       icon: userCircle,
       expextedTime: "30 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User202",
       icon: userCircle,
       expextedTime: "35 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Completed",
     },
     {
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "UserPayed",
       icon: userCircle,
       expextedTime: "20 minutes",
-      dateAndTime: "15.10.2024 14:32",
+      dateAndTime: "15/10/2024, 14:32",
       status: "Completed",
     },
     {
       name: "User789",
       icon: userCircle,
       expextedTime: "25 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User101",
       icon: userCircle,
       expextedTime: "30 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User202",
       icon: userCircle,
       expextedTime: "35 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Completed",
     },
     {
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "UserPayed",
       icon: userCircle,
       expextedTime: "20 minutes",
-      dateAndTime: "15.10.2024 14:32",
+      dateAndTime: "15/10/2024, 14:32",
       status: "Completed",
     },
     {
       name: "User789",
       icon: userCircle,
       expextedTime: "25 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User101",
       icon: userCircle,
       expextedTime: "30 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User202",
       icon: userCircle,
       expextedTime: "35 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Completed",
     },
     {
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "UserPayed",
       icon: userCircle,
       expextedTime: "20 minutes",
-      dateAndTime: "15.10.2024 14:32",
+      dateAndTime: "15/10/2024, 14:32",
       status: "Completed",
     },
     {
       name: "User789",
       icon: userCircle,
       expextedTime: "25 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User101",
       icon: userCircle,
       expextedTime: "30 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User202",
       icon: userCircle,
       expextedTime: "35 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Completed",
     },
     {
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "UserPayed",
       icon: userCircle,
       expextedTime: "20 minutes",
-      dateAndTime: "15.10.2024 14:32",
+      dateAndTime: "15/10/2024, 14:32",
       status: "Completed",
     },
     {
       name: "User789",
       icon: userCircle,
       expextedTime: "25 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User101",
       icon: userCircle,
       expextedTime: "30 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User202",
       icon: userCircle,
       expextedTime: "35 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Completed",
     },
     {
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "UserPayed",
       icon: userCircle,
       expextedTime: "20 minutes",
-      dateAndTime: "15.10.2024 14:32",
+      dateAndTime: "15/10/2024, 14:32",
       status: "Completed",
     },
     {
       name: "User789",
       icon: userCircle,
       expextedTime: "25 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User101",
       icon: userCircle,
       expextedTime: "30 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User202",
       icon: userCircle,
       expextedTime: "35 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Completed",
     },
     {
       name: "User123",
       icon: userCircle,
       expextedTime: "15 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "UserPayed",
       icon: userCircle,
       expextedTime: "20 minutes",
-      dateAndTime: "15.10.2024 14:32",
+      dateAndTime: "15/10/2024, 14:32",
       status: "Completed",
     },
     {
       name: "User789",
       icon: userCircle,
       expextedTime: "25 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User101",
       icon: userCircle,
       expextedTime: "30 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Process",
     },
     {
       name: "User202",
       icon: userCircle,
       expextedTime: "35 minutes",
-      dateAndTime: "15.10.2024 14:30",
+      dateAndTime: "15/10/2024, 14:30",
       status: "Completed",
     },
     {
       name: user.username,
       icon: userCircle,
       expextedTime: "40 minutes",
-      dateAndTime: "15.10.2024 14:35",
+      dateAndTime: "15/10/2024, 14:35",
       status: "Process",
       active: true,
     },
   ];
   const handleCalculator = () => {
     setCalculator(!calculator);
-  };
-
-  const handleUsersList = () => {
-    setUsersList(!usersList);
   };
 
   const [activeModal, setActiveModal] = useState(null);
@@ -402,13 +399,16 @@ export default function ActivePageFarming({ user }) {
     setTimeout(() => {
       setSecondClipboard(false);
     }, 3000);
-    navigator.clipboard.writeText(hashMEMO).then(() => {
+    navigator.clipboard.writeText(codeMemo).then(() => {
       setSecondClipboard(true);
       setTimeout(() => setSecondClipboard(false), 3000);
     });
   };
 
-  const hashMEMO = "3457582";
+  useEffect(() => {
+    const hashMEMO = Math.floor(Math.random() * 10000000).toString();
+    setCodeMemo(hashMEMO);
+  }, []);
 
   const handleClipboard2 = () => {
     setClipboard2(true);
@@ -472,7 +472,7 @@ export default function ActivePageFarming({ user }) {
             className="bg-some-black active-page- overlay z-40 fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
           >
             <div
-              className="flex items-center justify-center h-[1vh] z-40"
+              className="flex items-center justify-center h-[1vh] z-40  w-5/6"
               onClick={(e) => e.stopPropagation()}
             >
               <div
@@ -490,7 +490,7 @@ export default function ActivePageFarming({ user }) {
                       </p>
                       <Link
                         to={"https://youtube.com/"}
-                        className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]"
+                        className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E] m-auto"
                       >
                         Check video instructions
                       </Link>
@@ -564,7 +564,7 @@ export default function ActivePageFarming({ user }) {
                     </p>
                     <Link
                       to={"https://youtube.com/"}
-                      className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]"
+                      className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]  m-auto"
                     >
                       Check video instructions
                     </Link>
@@ -621,6 +621,7 @@ export default function ActivePageFarming({ user }) {
                       <CodeViewer2
                         onAnimationComplete={() => setIsCodeComplete2(true)}
                         copyText={user.token}
+                        memoCode={codeMemo}
                       />
                     </>
                   </div>
@@ -657,7 +658,7 @@ export default function ActivePageFarming({ user }) {
                     </p>
                     <Link
                       to={"https://youtube.com/"}
-                      className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]"
+                      className="py-2 md:px-5 px-3  text-[10px] md:text-sm text-[#999C9E]  m-auto"
                     >
                       Check video instructions
                     </Link>
@@ -701,9 +702,9 @@ export default function ActivePageFarming({ user }) {
                   ></Button>
                 ) : (
                   <Button
-                  className={
-                    "border-2 border-transparent transition-all duration-300 rounded-xl hover:border-2 hover:border-[#43AFFF] hover:text-white hover:bg-transparent"
-                  }
+                    className={
+                      "border-2 border-transparent transition-all duration-300 rounded-xl hover:border-2 hover:border-[#43AFFF] hover:text-white hover:bg-transparent"
+                    }
                     title={"Copy hash"}
                   ></Button>
                 )}
@@ -747,7 +748,7 @@ export default function ActivePageFarming({ user }) {
                   className="flex items-center  gap-2 text-start justify-between border-2  text-white border-[#2C2C2C] rounded-xl py-2.5 px-3.5 mt-4 mb-4"
                 >
                   <div className="flex gap-2 items-center justify-between">
-                    <p className="">3457582</p>
+                    <p className="">{codeMemo}</p>
                   </div>
                   {secondClipboard ? (
                     <h1 className="flex gap-2 items-center cursor-pointer">
@@ -903,14 +904,15 @@ export default function ActivePageFarming({ user }) {
                               <p>15 minute</p>
                             </td>
                             <td className="text-sm">
-                              {new Date(u.createdAt).toLocaleDateString(
-                                "en-US",
-                                {
-                                  year: "numeric",
-                                  month: "long",
-                                  day: "numeric",
-                                }
-                              )}
+                              {u.active
+                                ? new Date().toLocaleString("en-GB", {
+                                    day: "2-digit",
+                                    month: "2-digit",
+                                    year: "numeric",
+                                    hour: "2-digit",
+                                    minute: "2-digit",
+                                  })
+                                : u.dateAndTime}
                             </td>
                             {u.status === "Completed" ? (
                               <td classNa me="neu-trial">
