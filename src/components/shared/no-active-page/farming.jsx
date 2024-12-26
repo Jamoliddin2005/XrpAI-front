@@ -406,7 +406,7 @@ export default function ActivePageFarming() {
 
   function generateRandomText(length) {
     const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     let result = "";
     for (let i = 0; i < length; i++) {
       result += characters.charAt(
