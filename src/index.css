@@ -722,7 +722,7 @@ pre code {
 
 @media (max-width: 500px) {
   .code-generator {
-    width: 70% !important;
+    width: 100% !important;
     z-index: 20;
   }
 }
@@ -819,13 +819,13 @@ table div {
     overflow-x: scroll;
   }
   .table-element-res {
-    width: 800px;
+    width: 550px;
     overflow: scroll;
     background: #141414;
   }
 
   .table-element-responsice {
-    width: 800px;
+    width: 90%;
     overflow: scroll;
   }
   .scrol-element-table {
@@ -859,7 +859,7 @@ table div {
   }
 
   .table-element-responsice {
-    width: 800px;
+    width: 100%;
     overflow: scroll;
   }
   .scrol-element-table {
@@ -1020,14 +1020,30 @@ input[type="range"]::-ms-thumb {
   cursor: pointer;
 }
 
-
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
+}
+
+.width100 {
+  width: 95%;
+}
+@media (max-width: 600px) {
+  .width-media-100 {
+    width: 95%;
+  }
+  .scrol-element-table{
+    width: 100% !important;
+  }
+  .table-element-res{
+    width: 540px !important;
+  }
+  .table-element-responsice{
+    width: 100% !important;
+  }
 }

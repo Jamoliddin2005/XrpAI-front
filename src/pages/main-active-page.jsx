@@ -23,9 +23,12 @@ import TooggleDropdown from "../components/accordion";
 import Browsing from "../assets/icons/browsing.svg";
 import { Link, useNavigate } from "react-router-dom";
 import Calculator from "../components/shared/calculator";
+import Button from "../components/buttons/signButtons";
 
 export default function MainActivePage({ user }) {
   const [navbar, setNavbar] = useState(false);
+  const [failModalBoolean, setFailModalBoolean] = useState(false);
+
   const handleNavbar = () => {
     setNavbar(!navbar);
   };
@@ -42,60 +45,22 @@ export default function MainActivePage({ user }) {
     {
       icon: CalendarIcon,
       text: "File Expoler",
-      submenu: [
-        "Farm",
-        "Assets",
-        "Analytics",
-        "Story",
-        "Community",
-        "Load Volumes",
-      ],
     },
     {
       icon: Browsing,
       text: "Solidity compiler",
-      submenu: [
-        "Farm",
-        "Assets",
-        "Analytics",
-        "Story",
-        "Community",
-        "Load Volumes",
-      ],
     },
     {
       icon: DiscoverIcon,
       text: "Deploy & run transactions",
-      submenu: [
-        "Farm",
-        "Assets",
-        "Analytics",
-        "Story",
-        "Community",
-        "Load Volumes",
-      ],
     },
     {
       icon: PasswordIcon,
       text: "Solhint Linter",
-      submenu: [
-        "Farm",
-        "Assets",
-        "Analytics",
-        "Story",
-        "Community",
-        "Load Volumes",
-      ],
     },
   ];
 
   const dropdownOptions = ["Week 1", "Week 2", "Week 3", "Week 4"];
-
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const toggleAccordion = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
 
   return (
     <>
@@ -125,43 +90,15 @@ export default function MainActivePage({ user }) {
               <div className="border-top-bottom">
                 <ul>
                   {navbarData.map((nav, index) => (
-                    <div key={index} className="mb-4">
-                      <div
-                        className="flex gap-2 items-center cursor-pointer sidebar-text trial"
-                        onClick={() => toggleAccordion(index)}
-                      >
-                        <img
-                          src={nav.icon}
-                          alt=""
-                          className="w-6 h-6"
-                          style={
-                            activeIndex === index ? { filter: "invert(1)" } : {}
-                          }
-                        />
-                        <h1
-                          className={`montreal ${
-                            activeIndex === index && "text-[#fff]"
-                          }`}
-                        >
-                          {nav.text}
-                        </h1>
+                    <div
+                      key={index}
+                      className="mb-4"
+                      onClick={() => setFailModalBoolean(true)}
+                    >
+                      <div className="flex gap-2 items-center cursor-pointer sidebar-text trial">
+                        <img src={nav.icon} alt="" className="w-6 h-6" />
+                        <h1 className={`montreal`}>{nav.text}</h1>
                       </div>
-                      {activeIndex === index && (
-                        <ul className="ml-8 mt-2 space-y-2">
-                          {nav.submenu.map((item, subIndex) => (
-                            <li key={subIndex} className="mt-2">
-                              <Link
-                                to={`/main-active/${item
-                                  .toLowerCase()
-                                  .replace(" ", "-")}`}
-                                className="text-[#fff] hover:text-blue-500 transition-all duration-300 "
-                              >
-                                {item}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
                     </div>
                   ))}
                 </ul>
@@ -319,6 +256,66 @@ export default function MainActivePage({ user }) {
           </div>
         </div>
       </div>
+
+      {failModalBoolean && (
+        <div
+          onClick={()=> setFailModalBoolean(false)}
+          className="bg-some-black overlay  z-40 fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
+        >
+          <div
+            className="flex items-center bg-red-100 justify-center h-[1vh] z-40"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="text-white">
+              <div className="bg-[#141414] py-4 px-3 rounded-[20px] max-w-[350px] w-full">
+                <div className="bg-[#43AFFF] w-[90px] h-[90px] flex items-center justify-center rounded-full transform-element marginAuto">
+                  <svg
+                    viewBox="0 0 50 50"
+                    fill="none"
+                    className="w-[45px] h-[45px]"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M47.5005 25C47.5005 12.5736 37.4269 2.5 25.0005 2.5C12.5741 2.5 2.50049 12.5736 2.50049 25C2.50049 37.4264 12.5741 47.5 25.0005 47.5C37.4269 47.5 47.5005 37.4264 47.5005 25Z"
+                      stroke="white"
+                      strokeWidth="3.375"
+                    />
+                    <path
+                      d="M25.5449 36.25V25C25.5449 23.9393 25.5449 23.409 25.2154 23.0795C24.8859 22.75 24.3556 22.75 23.2949 22.75"
+                      stroke="white"
+                      strokeWidth="3.375"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M24.982 16H25.0022"
+                      stroke="white"
+                      strokeWidth="4.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div className="neu-trial">
+                  <h2 className="text-lg text-center mt-4 ">
+                    Opening a section requires you to <br /> start the farming process!
+                  </h2>
+                  <p className="text-center text-[#999C9E] text-xs mt-4">
+                    Please register to continue
+                  </p>
+                  <div onClick={() => setFailModalBoolean(false)}>
+                    <Button
+                      className={"rounded-[12px] mt-7"}
+                      title={"Start the farming process"}
+                    ></Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {navbar ? (
         <div className="bg-[#141414] sidebar z-30">
           <div className="sidebar-div w-full h-[100vh] absolute top-0 left-0 z-50">
@@ -362,48 +359,20 @@ export default function MainActivePage({ user }) {
                 </div>
                 <NewFile />
                 <div className="border-top-bottom">
-                <ul>
-                  {navbarData.map((nav, index) => (
-                    <div key={index} className="mb-4">
+                  <ul>
+                    {navbarData.map((nav, index) => (
                       <div
-                        className="flex gap-2 items-center cursor-pointer sidebar-text trial"
-                        onClick={() => toggleAccordion(index)}
+                        key={index}
+                        className="mb-4"
+                        onClick={() => setFailModalBoolean(true)}
                       >
-                        <img
-                          src={nav.icon}
-                          alt=""
-                          className="w-6 h-6"
-                          style={
-                            activeIndex === index ? { filter: "invert(1)" } : {}
-                          }
-                        />
-                        <h1
-                          className={`montreal ${
-                            activeIndex === index && "text-[#fff]"
-                          }`}
-                        >
-                          {nav.text}
-                        </h1>
+                        <div className="flex gap-2 items-center cursor-pointer sidebar-text trial">
+                          <img src={nav.icon} alt="" className="w-6 h-6" />
+                          <h1 className={`montreal`}>{nav.text}</h1>
+                        </div>
                       </div>
-                      {activeIndex === index && (
-                        <ul className="ml-8 mt-2 space-y-2">
-                          {nav.submenu.map((item, subIndex) => (
-                            <li key={subIndex} className="mt-2">
-                              <Link
-                                to={`/main-active/${item
-                                  .toLowerCase()
-                                  .replace(" ", "-")}`}
-                                className="text-[#fff] hover:text-blue-500 transition-all duration-300 "
-                              >
-                                {item}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  ))}
-                </ul>
+                    ))}
+                  </ul>
                 </div>
                 <div className="">
                   <p className="text-[#535353] mt-4 mb-2 md:mb-4 md:mt-8 grotesk">

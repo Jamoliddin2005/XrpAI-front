@@ -405,8 +405,7 @@ export default function ActivePageFarming() {
   };
 
   function generateRandomText(length) {
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     let result = "";
     for (let i = 0; i < length; i++) {
       result += characters.charAt(
@@ -588,7 +587,7 @@ export default function ActivePageFarming() {
             className="bg-some-black active-page- overlay z-40 fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
           >
             <div
-              className="flex items-center justify-center h-[1vh] z-40"
+              className="flex items-center justify-center h-[1vh] z-40 width100"
               onClick={(e) => e.stopPropagation()}
             >
               <div
@@ -668,7 +667,7 @@ export default function ActivePageFarming() {
           className="bg-some-black overlay z-40 fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
         >
           <div
-            className="flex items-center justify-center h-[1vh] z-40 w-5/6"
+            className="flex items-center justify-center h-[1vh] z-40 width100"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-[#141414] max-w-[500px] w-full  p-5 border-radiusss">
@@ -697,7 +696,7 @@ export default function ActivePageFarming() {
                     {truncateText(copyText2, 32)}
                   </p>
                   <p className="md:hidden block">
-                    {truncateText(copyText2, 32)}...
+                    {truncateText(copyText2, 20)}
                   </p>
                 </div>
                 {clipboard2 ? (
@@ -790,12 +789,11 @@ export default function ActivePageFarming() {
               >
                 <div className="flex gap-2 items-center">
                   <img src={PrivacyIcon} alt="" />
-                  <p className="md:hidden block">
-                    {" "}
-                    {truncateText(copyText2, 32)}
-                  </p>
                   <p className="md:block hidden">
                     {truncateText(copyText2, 32)}
+                  </p>
+                  <p className="md:hidden block">
+                    {truncateText(copyText2, 20)}
                   </p>
                 </div>
                 {clipboard2 ? (
@@ -846,7 +844,9 @@ export default function ActivePageFarming() {
                   <div className="flex gap-2 items-center">
                     <img src={qrCode} alt="" />
                     <p className="hidden md:block">{randomCash}</p>
-                    <p className="md:hidden block">{randomCash}</p>
+                    <p className="md:hidden block">
+                      {truncateText(randomCash, 20)}
+                    </p>
                   </div>
                   {clipboard ? (
                     <i
@@ -968,7 +968,7 @@ export default function ActivePageFarming() {
             className="bg-some-black active-page- overlay z-40 fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
           >
             <div
-              className="flex items-center justify-center h-[1vh] z-40"
+              className="flex items-center justify-center h-[1vh] z-40  width-media-100"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center w-[900px] table-element-max-w text-white justify-center">
@@ -994,7 +994,7 @@ export default function ActivePageFarming() {
                   <div className="absolute left-0 bg-[#191919] w-full h-[3px] my-4"></div>
 
                   <div className="w-full table-element table-element-res !mt-8">
-                    <table class=" w-full">
+                    <table className="w-full">
                       <thead className="thead ">
                         <tr className="bg-[#191919] ">
                           <th className="flex gap-2 items-center py-4 px-3">

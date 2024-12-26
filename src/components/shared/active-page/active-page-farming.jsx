@@ -18,7 +18,6 @@ export default function ActivePageFarming({ user }) {
   const [clipboard2, setClipboard2] = useState(false);
   const [openCodeView, setOpenCodeView] = useState(false);
   const [calculator, setCalculator] = useState(false);
-  const [usersList, setUsersList] = useState(false);
   const [secondClipboard, setSecondClipboard] = useState(false);
   const [isCodeComplete, setIsCodeComplete] = useState(false);
   const [isCodeComplete2, setIsCodeComplete2] = useState(false);
@@ -472,7 +471,7 @@ export default function ActivePageFarming({ user }) {
             className="bg-some-black active-page- overlay z-40 fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
           >
             <div
-              className="flex items-center justify-center h-[1vh] z-40  w-5/6"
+              className="flex items-center justify-center h-[1vh] z-40 width100"
               onClick={(e) => e.stopPropagation()}
             >
               <div
@@ -552,7 +551,7 @@ export default function ActivePageFarming({ user }) {
           className="bg-some-black overlay z-40 fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
         >
           <div
-            className="flex items-center justify-center h-[1vh] z-40"
+            className="flex items-center justify-center h-[1vh] z-40 width100"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-[#141414] max-w-[500px] w-full  p-5 border-radiusss">
@@ -577,9 +576,9 @@ export default function ActivePageFarming({ user }) {
                   className="flex gap-2 items-center"
                 >
                   <img src={PrivacyIcon} alt="" />
-                  <p className="hidden md:block">{user.token}...</p>
+                  <p className="hidden md:block">{user.token}</p>
                   <p className="md:hidden block">
-                    {truncateText(user.token, 20)}...
+                    {truncateText(user.token, 20)}
                   </p>
                 </div>
                 {clipboard2 ? (
@@ -839,6 +838,7 @@ export default function ActivePageFarming({ user }) {
           </div>
         </div>
       )}
+    
       {activeModal === "fivesModal" && (
         <>
           <div
@@ -846,7 +846,7 @@ export default function ActivePageFarming({ user }) {
             className="bg-some-black active-page- overlay z-40 fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
           >
             <div
-              className="flex items-center justify-center h-[1vh] z-40"
+              className="flex items-center justify-center h-[1vh] z-40 width-media-100"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center w-[900px] table-element-max-w text-white justify-center">
@@ -872,7 +872,7 @@ export default function ActivePageFarming({ user }) {
                   <div className="absolute left-0 bg-[#191919] w-full h-[3px] my-4"></div>
 
                   <div className="w-full table-element table-element-res !mt-8">
-                    <table class=" w-full">
+                    <table className=" w-full">
                       <thead className="thead ">
                         <tr className="bg-[#191919] ">
                           <th className="flex gap-2 items-center py-4 px-3">
