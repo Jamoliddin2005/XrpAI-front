@@ -4,6 +4,7 @@ import RightIconBlue from "../../../assets/icons/right-blue.svg";
 import Solidity from "../../../assets/icons/solidity.svg";
 import Sourcify from "../../../assets/icons/soursify.svg";
 import Dgit from "../../../assets/icons/dgit.svg";
+import LastIcon from "../../../assets/icons/lst.svg";
 
 export default function FeaturedPluginActive() {
   const criptoCard = [
@@ -36,25 +37,12 @@ export default function FeaturedPluginActive() {
       status: true,
     },
     {
-      icon: checkIcon,
+      icon: LastIcon,
       language: "Language",
-      name: "SUT",
-      content: "To unit test a Solidity smart contract using Hardhat",
-      status: false,
-    },
-    {
-      icon: checkIcon,
-      language: "Language",
-      name: "SUT",
-      content: "To unit test a Solidity smart contract using Hardhat",
-      status: false,
-    },
-    {
-      icon: checkIcon,
-      language: "Language",
-      name: "SUT",
-      content: "To unit test a Solidity smart contract using Hardhat",
+      name: "Solhint",
+      content: "Static code analysis of smart contracts...",
       status: true,
+      last:true
     },
   ];
 

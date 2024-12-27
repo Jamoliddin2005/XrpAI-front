@@ -9,36 +9,36 @@ export default function GetStarted() {
   const messagesData = [
     {
       icon: SmallIcon,
-      headText: "Video intruction",
-      content: "Investing becomes easier with...",
-      videoUrl: "https://www.youtube.com/",
+      headText: 'Video instruction',
+      content: 'Investing becomes easier with...',
+      videoUrl: 'https://www.youtube.com/'
     },
     {
       icon: TeachIcon,
-      headText: "0xProject ERC20",
-      content: "Create an ERC20 token by imp...",
+      headText: '0xProject ERC20',
+      content: 'Create an ERC20 token by imp...'
     },
     {
       icon: TeachIcon,
-      headText: "OpenZeppelin ERC20",
-      content: "Create an ERC20 token by imp...",
+      headText: 'OpenZeppelin ERC20',
+      content: 'Create an ERC20 token by imp...'
     },
     {
       icon: TeachIcon,
-      headText: "Gnosis Safe MultiSig",
-      content: "Create Multi-Signature wallets...",
+      headText: 'Setting up the stacking',
+      content: 'Set up a staking mechanism t...'
     },
     {
       icon: TeachIcon,
-      headText: "Gnosis Safe MultiSig",
-      content: "Create Multi-Signature wallets...",
+      headText: 'Creating a DAO',
+      content: 'Create a decentralized autono...'
     },
     {
       icon: TeachIcon,
-      headText: "Gnosis Safe MultiSig",
-      content: "Create Multi-Signature wallets...",
-    },
-  ];
+      headText: 'DeFi application development',
+      content: 'Create a DeFi application to m...'
+    }
+  ]
   return (
     <div
       data-aos="zoom-in"

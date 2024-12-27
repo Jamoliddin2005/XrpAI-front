@@ -9,7 +9,7 @@ export default function GetStartedActive () {
   const messagesData = [
     {
       icon: SmallIcon,
-      headText: 'Video intruction',
+      headText: 'Video instruction',
       content: 'Investing becomes easier with...',
       videoUrl: 'https://www.youtube.com/'
     },
@@ -25,18 +25,18 @@ export default function GetStartedActive () {
     },
     {
       icon: TeachIcon,
-      headText: 'Gnosis Safe MultiSig',
-      content: 'Create Multi-Signature wallets...'
+      headText: 'Setting up the stacking',
+      content: 'Set up a staking mechanism t...'
     },
     {
       icon: TeachIcon,
-      headText: 'Gnosis Safe MultiSig',
-      content: 'Create Multi-Signature wallets...'
+      headText: 'Creating a DAO',
+      content: 'Create a decentralized autono...'
     },
     {
       icon: TeachIcon,
-      headText: 'Gnosis Safe MultiSig',
-      content: 'Create Multi-Signature wallets...'
+      headText: 'DeFi application development',
+      content: 'Create a DeFi application to m...'
     }
   ]
   return (
