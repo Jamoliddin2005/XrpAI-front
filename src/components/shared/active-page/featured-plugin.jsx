@@ -26,14 +26,14 @@ export default function FeaturedPluginActive() {
       icon: Sourcify,
       language: "Language",
       name: "Sourcify",
-      content: "Verification of smart co...",
+      content: "Verification of smart contract source co...",
       status: false,
     },
     {
       icon: Dgit,
       language: "Language",
       name: "Dgit",
-      content: "Versioning of smart contracts on Solidi...",
+      content: "Versioning of smart contracts on Soli...",
       status: true,
     },
     {
